@@ -8,43 +8,43 @@ namespace Beskrivande_Statistik
 {
     public static class Statistics
     {
-        public static dynamic DescriptiveStatistics(int[] i)
+        public static dynamic DescriptiveStatistics(int[] source)
         {
-            return i;
+            return source;
         }
 
-        public static int Maximum(int[] i)
+        public static int Maximum(int[] source)
         {
-            return i[0];
+            return source[0];
         }
 
-        public static double Mean(int[] i)
+        public static double Mean(int[] source)
         {
-            return (double)i[0];
+            return (double)source[0];
         }
 
-        public static double Median(int[] i)
+        public static double Median(int[] source)
         {
-            return Math.Sqrt(i[0]);
+            return Math.Sqrt(source[0]);
         }
 
-        public static int Minimum(int[] i)
+        public static int Minimum(int[] source)
         {
-            return i[0];
+            return source[0];
         }
 
-        public static int[] Mode(int[] i)
+        public static int[] Mode(int[] source)
         {
-            return i;
+            return source;
         }
 
-        public static int Range(int[] i)
+        public static int Range(int[] source)
         {
-            return i[0];
+            return source[0];
         }
-        public static double StandardDeviation(int[] i)
+        public static double StandardDeviation(int[] source)
         {
-            return (double)(i[0]);
+            return (double)(source[0]);
         }
     }
 }
