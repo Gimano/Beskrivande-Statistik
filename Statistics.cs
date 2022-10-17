@@ -24,7 +24,7 @@ namespace Beskrivande_Statistik
         {
             double mean = 0;
             mean = source.Average();
-            return (double)mean;
+            return Math.Round(mean, 1);
         }
 
         public static double Median(int[] source)
