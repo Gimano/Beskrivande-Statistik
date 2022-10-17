@@ -35,7 +35,19 @@ namespace Beskrivande_Statistik
 
         public static int[] Mode(int[] source)
         {
-            return source;
+            if (source == null || source.Length == 0)
+                throw new ArgumentException("Array is empty.");
+
+            var dictSource = source.ToLookup(x => x); // Convert the array to a Lookup
+
+            // Find the number of modes
+            var numberOfModes = dictSource.Max(x => x.Count());
+
+            // Get only the modes
+            var modes = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key);
+            int[] mode = modes.ToArray();
+
+            return mode;
         }
 
         public static int Range(int[] source)
