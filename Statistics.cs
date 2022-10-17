@@ -15,12 +15,16 @@ namespace Beskrivande_Statistik
 
         public static int Maximum(int[] source)
         {
-            return source[0];
+            int maximum = 0;
+            maximum = source.Max();
+            return maximum;
         }
 
         public static double Mean(int[] source)
         {
-            return (double)source[0];
+            double mean = 0;
+            mean = source.Average();
+            return (double)mean;
         }
 
         public static double Median(int[] source)
@@ -30,7 +34,9 @@ namespace Beskrivande_Statistik
 
         public static int Minimum(int[] source)
         {
-            return source[0];
+            int minimum = 0;
+            minimum = source.Min();
+            return minimum;
         }
 
         public static int[] Mode(int[] source)
@@ -40,7 +46,9 @@ namespace Beskrivande_Statistik
 
         public static int Range(int[] source)
         {
-            return source[0];
+            int range = 0;
+            range = source.Max() - source.Min();
+            return range;
         }
         public static double StandardDeviation(int[] source)
         {
