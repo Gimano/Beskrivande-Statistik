@@ -28,8 +28,6 @@ namespace Beskrivande_Statistik
             int maximum = 0;
             maximum = source.Max();
             return maximum;
-
-            return source[0];
         }
 
         public static double Mean(int[] source)
@@ -37,8 +35,6 @@ namespace Beskrivande_Statistik
             double mean = 0;
             mean = source.Average();
             return Math.Round(mean, 1);
-
-            return (double)source[0];
         }
 
         public static double Median(int[] source)
@@ -56,8 +52,6 @@ namespace Beskrivande_Statistik
             int minimum = 0;
             minimum = source.Min();
             return minimum;
-
-            return source[0];
         }
 
         public static int[] Mode(int[] source)
@@ -70,11 +64,10 @@ namespace Beskrivande_Statistik
                 throw new InvalidOperationException("Sequence contains no elements.");
 
             var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
-
             var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
-
-            // Hämtar bara typvärdena
-            int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
+            var modes = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key); // Hämtar bara typvärdena
+            int[] mode = modes.ToArray();
+            Array.Reverse(mode);
 
             return mode;
         }
@@ -85,7 +78,7 @@ namespace Beskrivande_Statistik
             range = source.Max() - source.Min();
             return range;
 
-            return  source[0];
+            return source[0];
         }
         public static double StandardDeviation(int[] source)
         {
