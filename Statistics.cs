@@ -56,7 +56,6 @@ namespace Beskrivande_Statistik
 
         public static int[] Mode(int[] source)
         {
-            return source;
 
             if (source == null)
                 throw new ArgumentNullException("Sequence is null.");
@@ -64,10 +63,11 @@ namespace Beskrivande_Statistik
                 throw new InvalidOperationException("Sequence contains no elements.");
 
             var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
+
             var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
-            var modes = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key); // Hämtar bara typvärdena
-            int[] mode = modes.ToArray();
-            Array.Reverse(mode);
+
+            // Hämtar bara typvärdena
+            int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
 
             return mode;
         }

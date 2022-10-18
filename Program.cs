@@ -3,20 +3,6 @@
 while (true)
 {
     
-
-    
-    
-    //typvärde och median en skriver ej ut rätt
-
-    int[] temp = DeserializeJson.Deserialize();
-    Console.WriteLine("Maximum: " + Statistics.Maximum(temp));
-    Console.WriteLine("Minimum: " + Statistics.Minimum(temp));
-    Console.WriteLine("Medelvärde: " + Statistics.Mean(temp));
-    Console.WriteLine("Median: " + Statistics.Median(temp));
-    Console.WriteLine("Typvärde: " + Statistics.Mode(temp));
-    Console.WriteLine("Variationsbredd: " + Statistics.Range(temp));
-    Console.WriteLine("Standardavvikelse: "+Statistics.StandardDeviation(temp));
-
     int menuChoice;
     Console.WriteLine("Välkommen!");
     Console.WriteLine("--------------------------------------------");
@@ -33,6 +19,14 @@ while (true)
     {
         case 1:
             //Presentera data
+            int[] temp = DeserializeJson.Deserialize();           
+            Console.WriteLine("Maximum: " + Statistics.Maximum(temp));
+            Console.WriteLine("Minimum: " + Statistics.Minimum(temp));
+            Console.WriteLine("Medelvärde: " + Statistics.Mean(temp));
+            Console.WriteLine("Median: " + Statistics.Median(temp));
+            Console.WriteLine("Typvärde: " + Statistics.Mode(temp)[0] + ", " +Statistics.Mode(temp)[1] + ", " + Statistics.Mode(temp)[2]); //typvärde ur en av värdena
+            Console.WriteLine("Variationsbredd: " + Statistics.Range(temp));
+            Console.WriteLine("Standardavvikelse: "+Statistics.StandardDeviation(temp));
             break;
         case 2:
             //Välj json fil och presentera data
