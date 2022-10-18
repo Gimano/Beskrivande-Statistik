@@ -16,6 +16,7 @@ while (true)
     switch (menuChoice)
     {
         case 1:
+            Presentation_av_data.presentation_av_data();
             //Presentera data
             break;
         case 2:
