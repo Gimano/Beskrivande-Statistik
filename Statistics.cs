@@ -10,7 +10,17 @@ namespace Beskrivande_Statistik
     {
         public static dynamic DescriptiveStatistics(int[] source)
         {
-            return source;
+            Dictionary<string, dynamic> response = new Dictionary<string, dynamic>()
+            {
+                {"Maximum", Maximum(source)},
+                {"Minimum", Minimum(source)},
+                {"Mean", Mean(source)},
+                {"Median", Median(source)},
+                {"Mode", Mode(source)},
+                {"Range", Range(source)},
+                {"StandardDeviation", StandardDeviation(source)}
+            };
+            return response;
         }
 
         public static int Maximum(int[] source)
@@ -33,7 +43,12 @@ namespace Beskrivande_Statistik
 
         public static double Median(int[] source)
         {
-            return Math.Sqrt(source[0]);
+            Array.Sort(source);
+
+            if (source.Length % 2 == 0)
+                return (source[source.Length / 2 - 1] + source[source.Length / 2]) / 2;
+            else
+                return source[source.Length / 2];
         }
 
         public static int Minimum(int[] source)
@@ -70,23 +85,25 @@ namespace Beskrivande_Statistik
             range = source.Max() - source.Min();
             return range;
 
-            return source[0];
+            return  source[0];
         }
         public static double StandardDeviation(int[] source)
         {
-            double devation = 0;
+            double devation = 0.0;
             int count = source.Count();
             double medel = Mean(source);
+            double u = 0; 
 
             if (count > 1)
             {
                 double sum = source.Sum(d=> (d-medel) * (d-medel));
                 
                 devation = Math.Sqrt(sum / count);
+                u = Math.Round(devation, 1); // avrundar svaret till en decimal
             }
-            return devation;
+            return u;
 
-            //varje number i listan - medelvärde för att få avvikelse för varje nummer
+            //varje number i listan minus medelvärde för att få avvikelse för varje nummer
             //kvadera varje avvikelsen för varje tal
 
             //plus ihop alla kvaderade avvikelser och dela det på antalet nummer
