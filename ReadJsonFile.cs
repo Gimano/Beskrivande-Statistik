@@ -42,7 +42,8 @@ public static class ReadJsonFile
                 break;
         }
         
-        
+        // BYGG OM HELA SKITEN SÅ VI SKRIVER UT VILKA .JSON FILER SOM FINNS, SEN FÅR MAN SKRIVA IN FILNAMNET AV FILEN SOM SKA KÖRAS.
+        // IF FILE DOES NOT EXIST FELMEDDELANDE & PROVA IGEN
         
 
         
