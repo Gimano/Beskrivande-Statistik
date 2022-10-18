@@ -2,8 +2,8 @@
 
 while (true)
 {
+    
     int menuChoice;
-    Console.Clear();
     Console.WriteLine("Välkommen!");
     Console.WriteLine("--------------------------------------------");
     Console.WriteLine("Välj ett alternativ: ");
@@ -12,6 +12,8 @@ while (true)
     Console.WriteLine("3. Generera en json fil med nummer.");
     Console.WriteLine("4. Avsluta");
     Console.WriteLine("--------------------------------------------");
+    
+    
     while (!int.TryParse(Console.ReadLine(), out menuChoice));
     switch (menuChoice)
     {
