@@ -8,43 +8,63 @@ namespace Beskrivande_Statistik
 {
     public static class Statistics
     {
-        public static dynamic DescriptiveStatistics(int[] i)
+        public static dynamic DescriptiveStatistics(int[] source)
         {
-            return i;
+            return source;
         }
 
-        public static int Maximum(int[] i)
+        public static int Maximum(int[] source)
         {
-            return i[0];
+            int maximum = 0;
+            maximum = source.Max();
+            return maximum;
         }
 
-        public static double Mean(int[] i)
+        public static double Mean(int[] source)
         {
-            return (double)i[0];
+            double mean = 0;
+            mean = source.Average();
+            return Math.Round(mean, 1);
         }
 
-        public static double Median(int[] i)
+        public static double Median(int[] source)
         {
-            return Math.Sqrt(i[0]);
+            return Math.Sqrt(source[0]);
         }
 
-        public static int Minimum(int[] i)
+        public static int Minimum(int[] source)
         {
-            return i[0];
+            int minimum = 0;
+            minimum = source.Min();
+            return minimum;
         }
 
-        public static int[] Mode(int[] i)
+        public static int[] Mode(int[] source)
         {
-            return i;
+            if (source == null)
+                throw new ArgumentNullException("Sequence is null.");
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
+
+            var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
+
+            var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
+
+            // Hämtar bara typvärdena
+            int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
+
+            return mode;
         }
 
-        public static int Range(int[] i)
+        public static int Range(int[] source)
         {
-            return i[0];
+            int range = 0;
+            range = source.Max() - source.Min();
+            return range;
         }
-        public static double StandardDeviation(int[] i)
+        public static double StandardDeviation(int[] source)
         {
-            return (double)(i[0]);
+            return (double)(source[0]);
         }
     }
 }
