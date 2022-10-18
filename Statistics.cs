@@ -35,7 +35,19 @@ namespace Beskrivande_Statistik
 
         public static int[] Mode(int[] source)
         {
-            return source;
+            if (source == null)
+                throw new ArgumentNullException("Sequence is null.");
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
+
+            var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
+
+            var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
+
+            // Hämtar bara typvärdena
+            int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
+
+            return mode;
         }
 
         public static int Range(int[] source)
