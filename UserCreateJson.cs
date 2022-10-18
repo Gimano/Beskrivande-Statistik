@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
-    
+    // Vill du mata in egna värden eller vill du generera ett antal random värden?????? BYGG DET - DU SKA JOBBA HÄR ( KANSKE SKA MAN FÅ VÄLJA VAD FÖR MEDELVÄRDEN .JSON FILEN SKA HA ETC)
     // NIKLAS
     public static class UserCreateJson
     {
