@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
+    
+    // NIKLAS
     public static class UserCreateJson
     {
         public static void UserJson()
@@ -31,11 +33,13 @@ namespace Beskrivande_Statistik
                     }
                     else
                     {
+                        // serializes the elements of IntList and writes them to fileName.json, with indentation
                         string json = JsonConvert.SerializeObject(IntList, Formatting.Indented);
                         File.WriteAllText(fileName, json);
                         break;
                     }
                 }
+                // Catches possible exceptions and sends the user back to keep adding integers untill user enters 0 to exit.
                 catch(FormatException)
                 {
                     Console.WriteLine("Invalid input. Input only accept integers.");
