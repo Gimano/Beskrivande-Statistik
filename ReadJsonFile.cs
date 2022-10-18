@@ -7,17 +7,42 @@ using Newtonsoft.Json;
 
 
 // Niklas
-public static class DeserializeJson
+public static class ReadJsonFile
 {
     public static int[] Deserialize()
     {
-        // Read the json file
-        var path = "data.json";
-        string jsonFile = File.ReadAllText(path);
+        invalidInput:
+        Console.WriteLine("[1] data.json");
+        Console.Write("Which file do you want to use: ");
+        var path = "";
+        string jsonFile = "";
+        string jsonSwitch = Console.ReadLine();
+        switch (jsonSwitch)
+        {
+            case "1":
+                // Read the json file
+                path = "data.json";
+                jsonFile = File.ReadAllText(path);
+                // return the json file into int array NumbersData
+                int[] NumbersData = JsonConvert.DeserializeObject<int[]>(jsonFile);
+                Console.Clear();
+                return NumbersData;
+                break;
+            default:
+                Console.Write("Invalid option, please try again");
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.Write(".");
+                    Thread.Sleep(350);
+                }
+                Console.Clear();
+                goto invalidInput;
+                break;
+        }
+        
+        
+        
 
-        // decerialize the json file into array Numbersdata
-        int[] NumbersData = JsonConvert.DeserializeObject<int[]>(jsonFile);
-
-        return NumbersData;
+        
     }
 }
