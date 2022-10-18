@@ -11,14 +11,13 @@ namespace Beskrivande_Statistik
     {
         public static void presentation_av_data()    //vill ha olika bakgrundfärg då bli texten lättläst
         {
-            Console.WriteLine($"Maximun:  ");
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.WriteLine($"Minimum: ");  
-                $"\nMedelvärde: " +
-                $"\nMedian: " +
-                $"\nTypvärde: " +
-                $"\nVaiationsbredd: " +
-                $"\nStandardavvikelse: ");
+            Console.WriteLine($"Maximun:  " +
+                $"\n\nMinimum: " +
+                $"\n\nMedelvärde: " +
+                $"\n\nMedian: " +
+                $"\n\nTypvärde: " +
+                $"\n\nVaiationsbredd: " +
+                $"\n\nStandardavvikelse: ");
         }
     }
 }
