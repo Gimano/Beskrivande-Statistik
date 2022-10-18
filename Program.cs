@@ -10,7 +10,7 @@ while (true)
     Console.WriteLine("1. Presentera uträkning av data.json.");
     Console.WriteLine("2. Välj en annan json fil att räkna ut ifrån");
     Console.WriteLine("3. Generera en json fil med nummer.");
-    Console.WriteLine("4. Avsluta");
+    Console.WriteLine("4. Avsluta hejej");
     Console.WriteLine("--------------------------------------------");
     while (!int.TryParse(Console.ReadLine(), out menuChoice));
     switch (menuChoice)
