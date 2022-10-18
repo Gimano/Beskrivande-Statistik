@@ -51,6 +51,8 @@ namespace Beskrivande_Statistik
 
         public static int[] Mode(int[] source)
         {
+            return source;
+
             if (source == null)
                 throw new ArgumentNullException("Sequence is null.");
             if (source.Length == 0)
@@ -70,10 +72,29 @@ namespace Beskrivande_Statistik
             int range = 0;
             range = source.Max() - source.Min();
             return range;
+
         }
         public static double StandardDeviation(int[] source)
         {
-            return (double)(source[0]);
+            double devation = 0;
+            int count = source.Count();
+            double medel = Mean(source);
+
+            if (count > 1)
+            {
+                double sum = source.Sum(d=> (d-medel) * (d-medel));
+                
+                devation = Math.Sqrt(sum / count);
+            }
+            return devation;
+
+            //varje number i listan - medelvärde för att få avvikelse för varje nummer
+            //kvadera varje avvikelsen för varje tal
+
+            //plus ihop alla kvaderade avvikelser och dela det på antalet nummer
+            //sedan roten ur på svaret och efter det har du standardavvikelsen
+
+           
         }
     }
 }
