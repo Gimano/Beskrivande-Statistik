@@ -35,17 +35,17 @@ namespace Beskrivande_Statistik
 
         public static int[] Mode(int[] source)
         {
-            if (source == null || source.Length == 0)
-                throw new ArgumentException("Array is empty.");
+            if (source == null)
+                throw new ArgumentNullException("Sequence is null.");
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
 
-            var dictSource = source.ToLookup(x => x); // Convert the array to a Lookup
+            var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
 
-            // Find the number of modes
-            var numberOfModes = dictSource.Max(x => x.Count());
+            var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
 
-            // Get only the modes
-            var modes = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key);
-            int[] mode = modes.ToArray();
+            // Hämtar bara typvärdena
+            int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
 
             return mode;
         }
