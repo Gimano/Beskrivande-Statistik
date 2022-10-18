@@ -10,7 +10,17 @@ namespace Beskrivande_Statistik
     {
         public static dynamic DescriptiveStatistics(int[] source)
         {
-            return source;
+            Dictionary<string, dynamic> response = new Dictionary<string, dynamic>()
+            {
+                {"Maximum", Maximum(source)},
+                {"Minimum", Minimum(source)},
+                {"Mean", Mean(source)},
+                {"Median", Median(source)},
+                {"Mode", Mode(source)},
+                {"Range", Range(source)},
+                {"StandardDeviation", StandardDeviation(source)}
+            };
+            return response;
         }
 
         public static int Maximum(int[] source)
@@ -41,17 +51,18 @@ namespace Beskrivande_Statistik
 
         public static int[] Mode(int[] source)
         {
+            return source;
+
             if (source == null)
                 throw new ArgumentNullException("Sequence is null.");
             if (source.Length == 0)
                 throw new InvalidOperationException("Sequence contains no elements.");
 
             var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
-
             var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
-
-            // Hämtar bara typvärdena
-            int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
+            var modes = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key); // Hämtar bara typvärdena
+            int[] mode = modes.ToArray();
+            Array.Reverse(mode);
 
             return mode;
         }
@@ -61,10 +72,29 @@ namespace Beskrivande_Statistik
             int range = 0;
             range = source.Max() - source.Min();
             return range;
+
         }
         public static double StandardDeviation(int[] source)
         {
-            return (double)(source[0]);
+            double devation = 0;
+            int count = source.Count();
+            double medel = Mean(source);
+
+            if (count > 1)
+            {
+                double sum = source.Sum(d=> (d-medel) * (d-medel));
+                
+                devation = Math.Sqrt(sum / count);
+            }
+            return devation;
+
+            //varje number i listan - medelvärde för att få avvikelse för varje nummer
+            //kvadera varje avvikelsen för varje tal
+
+            //plus ihop alla kvaderade avvikelser och dela det på antalet nummer
+            //sedan roten ur på svaret och efter det har du standardavvikelsen
+
+           
         }
     }
 }
