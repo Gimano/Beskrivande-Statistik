@@ -13,9 +13,9 @@ namespace Beskrivande_Statistik
         {
             dynamic presentFile = Statistics.DescriptiveStatistics(DeserializeJson.Deserialize());  //ropa till class Statistics 
             
-            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("\nVoilà");
-
+            Console.WriteLine("-------"); 
             Console.ForegroundColor = ConsoleColor.White;   
             Console.WriteLine($"\nMaximum: {presentFile["Maximum"]}");                             //vit
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -25,13 +25,15 @@ namespace Beskrivande_Statistik
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nMedian: {presentFile["Median"]}");                               //grå
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"\nTypvärde: {presentFile["Mode"][0]}, {presentFile["Mode"][1]}, {presentFile["Mode"][2]}");                                //vit 
+            Console.WriteLine($"\nTypvärde: {presentFile["Mode"][0]}, " +
+                                            $"{presentFile["Mode"][1]}, " +
+                                            $"{presentFile["Mode"][2]}");                          //vit 
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nVariationsbredd: {presentFile["Range"]}");                       //grå
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"\nStandardavvikelse: {presentFile["StandardDeviation"]} ");        //vit
-            Console.ForegroundColor = ConsoleColor.DarkGreen;                                      
-            Console.WriteLine("________________________________________");                         //grön
+            Console.ForegroundColor = ConsoleColor.Gray;                                       
+            Console.WriteLine("\n-------------------------------------------");                    //grå
             Console.ForegroundColor = ConsoleColor.Gray;                                           //grå
 
             Console.ReadKey(); 
