@@ -12,7 +12,7 @@ namespace Beskrivande_Statistik
         public static void presentation_av_data()    //vill ha olika färg då bli texten lättläst
         {
             Console.ForegroundColor = ConsoleColor.White;   
-            Console.WriteLine($"Maximun:  ");                   //vit
+            Console.WriteLine($"\nMaximun:  ");                   //vit
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nMinimum: ");                  //grå
             Console.ForegroundColor = ConsoleColor.White;       
