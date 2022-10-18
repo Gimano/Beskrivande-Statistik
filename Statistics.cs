@@ -27,11 +27,18 @@ namespace Beskrivande_Statistik
             return Math.Round(mean, 1);
         }
 
-        public static double Median(int[] source)
+        // Niklas
+        public static int Median(int[] source)
         {
-            return Math.Sqrt(source[0]);
+            Array.Sort(source);
+
+            if (source.Length % 2 == 0)
+                return (source[source.Length / 2 - 1] + source[source.Length / 2]) / 2;
+            else
+                return source[source.Length / 2];
         }
 
+        // Niklas
         public static int Minimum(int[] source)
         {
             int minimum = 0;
