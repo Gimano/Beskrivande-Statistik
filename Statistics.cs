@@ -10,7 +10,17 @@ namespace Beskrivande_Statistik
     {
         public static dynamic DescriptiveStatistics(int[] source)
         {
-            return source;
+            Dictionary<string, dynamic> response = new Dictionary<string, dynamic>()
+            {
+                {"Maximum", Maximum(source)},
+                {"Minimum", Minimum(source)},
+                {"Mean", Mean(source)},
+                {"Median", Median(source)},
+                {"Mode", Mode(source)},
+                {"Range", Range(source)},
+                {"StandardDeviation", StandardDeviation(source)}
+            };
+            return response;
         }
 
         public static int Maximum(int[] source)
@@ -47,11 +57,9 @@ namespace Beskrivande_Statistik
                 throw new InvalidOperationException("Sequence contains no elements.");
 
             var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
-
             var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
-
-            // Hämtar bara typvärdena
-            int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
+            var modes = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key); // Hämtar bara typvärdena
+            int[] mode = modes.ToArray();
 
             return mode;
         }
