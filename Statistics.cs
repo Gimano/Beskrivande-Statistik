@@ -18,8 +18,6 @@ namespace Beskrivande_Statistik
             int maximum = 0;
             maximum = source.Max();
             return maximum;
-
-            return source[0];
         }
 
         public static double Mean(int[] source)
@@ -27,8 +25,6 @@ namespace Beskrivande_Statistik
             double mean = 0;
             mean = source.Average();
             return Math.Round(mean, 1);
-
-            return (double)source[0];
         }
 
         public static double Median(int[] source)
@@ -41,14 +37,10 @@ namespace Beskrivande_Statistik
             int minimum = 0;
             minimum = source.Min();
             return minimum;
-
-            return source[0];
         }
 
         public static int[] Mode(int[] source)
         {
-            return source;
-
             if (source == null)
                 throw new ArgumentNullException("Sequence is null.");
             if (source.Length == 0)
@@ -69,8 +61,6 @@ namespace Beskrivande_Statistik
             int range = 0;
             range = source.Max() - source.Min();
             return range;
-
-            return source[0];
         }
         public static double StandardDeviation(int[] source)
         {
