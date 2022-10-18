@@ -13,6 +13,9 @@ namespace Beskrivande_Statistik
         {
             dynamic presentFile = Statistics.DescriptiveStatistics(DeserializeJson.Deserialize());  //ropa till class Statistics 
             
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\nVoilà");
+
             Console.ForegroundColor = ConsoleColor.White;   
             Console.WriteLine($"\nMaximum: {presentFile["Maximum"]}");                             //vit
             Console.ForegroundColor = ConsoleColor.Gray;
