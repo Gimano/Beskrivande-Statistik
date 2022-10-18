@@ -86,7 +86,7 @@ namespace Beskrivande_Statistik
                 
                 devation = Math.Sqrt(sum / count);
             }
-            return devation;
+            return Math.Round(devation, 1);
 
             //varje number i listan - medelvärde för att få avvikelse för varje nummer
             //kvadera varje avvikelsen för varje tal
