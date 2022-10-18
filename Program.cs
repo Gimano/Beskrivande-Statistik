@@ -18,6 +18,13 @@ while (true)
     switch (menuChoice)
     {
         case 1:
+            //dynamic o = Statistics.DescriptiveStatistics(DeserializeJson.Deserialize());
+            //Console.WriteLine(o["Maximum"]);
+            //int[] i = o["Mode"];
+            //Console.WriteLine(o["Mode"][0]);
+            //Array.ForEach(i, Console.Write);
+            ReadJson.Display();
+            Console.ReadKey();
             //Presentera data
             int[] temp = DeserializeJson.Deserialize();           
             Console.WriteLine("Maximum: " + Statistics.Maximum(temp));
