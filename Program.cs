@@ -30,10 +30,3 @@ while (true)
     if (menuChoice == 4)
         break;
 }
-
-void DisplayMode()
-{
-    int[] temp = Statistics.Mode(DeserializeJson.Deserialize());
-    foreach (int i in temp)
-        Console.WriteLine(i);
-}
