@@ -21,7 +21,7 @@ while (true)
             Presentation_av_data.presentation_av_data();              //Presentera data
             break;
         case 2:
-            //Välj json fil och presentera data
+            ReadCustomJson.Open();    //Välj json fil och presentera data
             break;
         case 3:
             //Skapa en json fil och fyll med data
