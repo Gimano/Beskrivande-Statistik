@@ -10,13 +10,8 @@ using Beskrivande_Statistik;
 // Niklas
 public static class ReadJsonFile
 {
-    public static int[] Deserialize()
+    public static int[] Deserialize(string path)
     {
-    noFileLabel:
-        // let the user make a choice of which file to use
-        Console.Write("Which file do you want to use: ");
-        string path = Console.ReadLine();
-
         if (File.Exists(path))
         {
             // reads the json file the user has chosen
@@ -31,10 +26,8 @@ public static class ReadJsonFile
         // if the user input does not match a json file throw error message and try again
         else
         {
-            Console.Clear();
             Console.WriteLine("File does not exist. Please try again.");
-            goto noFileLabel;
+            return null;
         }
-
     }
 }
