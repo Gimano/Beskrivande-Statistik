@@ -50,9 +50,9 @@ namespace Beskrivande_Statistik
                     break;
 
                 // OM LÄGSTA ÄR STÖRRE ÄN HÖGSTA BLIR DET ERROR. FIXA DET MED TEMP VARIABLER
-                // Om man väljer numberOfInts över 1 miljon ge en varning - Vill du verkligen göra det här?
 
-                // lets the user chose how many integers to be added to the jsonfile and also chose within which range the numbers can be created from a random.
+                // lets the user chose how many integers to be added to the jsonfile and also chose within which range the numbers can be created from a random. (1 - 10 million capped)
+                // if the user choses more than 1 million - ask them if they want to proceed
                 case "2":
                     int numberOfInts = 0;
                     int lowRnd = 0;
