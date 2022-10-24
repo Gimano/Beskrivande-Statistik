@@ -12,8 +12,6 @@ public static class ReadJsonFile
 {
     public static int[] Deserialize(string path)
     {
-    noFileLabel:
-
         if (File.Exists(path))
         {
             // reads the json file the user has chosen
@@ -28,9 +26,8 @@ public static class ReadJsonFile
         // if the user input does not match a json file throw error message and try again
         else
         {
-            Console.Clear();
             Console.WriteLine("File does not exist. Please try again.");
-            goto noFileLabel;
+            return null;
         }
     }
 }

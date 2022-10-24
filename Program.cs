@@ -5,6 +5,9 @@ while (true)
     Console.Clear();
     int menuChoice;
 
+    UserCreateJson.UserJson();
+
+
     Console.WriteLine("Välkommen!");
     Console.WriteLine("--------------------------------------------");
     Console.WriteLine("Välj ett alternativ: ");
