@@ -10,7 +10,18 @@ namespace Beskrivande_Statistik
     {
         public static dynamic DescriptiveStatistics(int[] source)
         {
-            return source;
+
+            Dictionary<string, dynamic> response = new Dictionary<string, dynamic>()
+            {
+                {"Maximum", Maximum(source)},
+                {"Minimum", Minimum(source)},
+                {"Mean", Mean(source)},
+                {"Median", Median(source)},
+                {"Mode", Mode(source)},
+                {"Range", Range(source)},
+                {"StandardDeviation", StandardDeviation(source)}
+            };
+            return response;
         }
 
         public static int Maximum(int[] source)
@@ -27,8 +38,9 @@ namespace Beskrivande_Statistik
             return Math.Round(mean, 1);
         }
 
-        // Niklas
-        public static int Median(int[] source)
+
+        public static double Median(int[] source)
+        
         {
             Array.Sort(source);
 
@@ -38,7 +50,7 @@ namespace Beskrivande_Statistik
                 return source[source.Length / 2];
         }
 
-        // Niklas
+
         public static int Minimum(int[] source)
         {
             int minimum = 0;
@@ -48,6 +60,7 @@ namespace Beskrivande_Statistik
 
         public static int[] Mode(int[] source)
         {
+
             if (source == null)
                 throw new ArgumentNullException("Sequence is null.");
             if (source.Length == 0)
@@ -71,7 +84,27 @@ namespace Beskrivande_Statistik
         }
         public static double StandardDeviation(int[] source)
         {
-            return (double)(source[0]);
+            double devation = 0.0;
+            int count = source.Count();
+            double medel = Mean(source);
+            double u = 0; 
+
+            if (count > 1)
+            {
+                double sum = source.Sum(d=> (d-medel) * (d-medel));
+                
+                devation = Math.Sqrt(sum / count);
+                u = Math.Round(devation, 1); // avrundar svaret till en decimal
+            }
+            return u;
+
+            //varje number i listan minus medelvärde för att få avvikelse för varje nummer
+            //kvadera varje avvikelsen för varje tal
+
+            //plus ihop alla kvaderade avvikelser och dela det på antalet nummer
+            //sedan roten ur på svaret och efter det har du standardavvikelsen
+
+           
         }
     }
 }
