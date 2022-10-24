@@ -14,22 +14,21 @@ while (true)
     Console.WriteLine("4. Avsluta");
     Console.WriteLine("--------------------------------------------");
 
-    
-    
     while (!int.TryParse(Console.ReadLine(), out menuChoice));
     switch (menuChoice)
     {
-
         case 1: 
             //Presentera data från class Presentation av data som tar Json filen från class DeserializeJson
-            //Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(ReadJsonFile.Deserialize()));              
+            Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(ReadJsonFile.Deserialize("data.json")));              
             break;
         case 2:
-            ReadCustomJson.Open();    //Välj json fil och presentera data
+            //Välj json fil och presentera data
+            ReadCustomJson.Open();
             break;
         case 3:
             UserCreateJson.UserJson();
             //Skapa en json fil och fyll med data
+            UserCreateJson.UserJson();
             break;
         default:
             break;
