@@ -22,7 +22,7 @@ while (true)
 
         case 1: 
             //Presentera data från class Presentation av data som tar Json filen från class DeserializeJson
-            Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(DeserializeJson.Deserialize()));              
+            Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(ReadJsonFile.Deserialize()));              
             break;
         case 2:
             //Välj json fil och presentera data
