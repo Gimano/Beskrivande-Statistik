@@ -17,23 +17,11 @@ while (true)
     while (!int.TryParse(Console.ReadLine(), out menuChoice));
     switch (menuChoice)
     {
-        case 1:
-            //dynamic o = Statistics.DescriptiveStatistics(DeserializeJson.Deserialize());
-            //Console.WriteLine(o["Maximum"]);
-            //int[] i = o["Mode"];
-            //Console.WriteLine(o["Mode"][0]);
-            //Array.ForEach(i, Console.Write);
-            ReadJson.Display();
-            Console.ReadKey();
-            //Presentera data
-            int[] temp = DeserializeJson.Deserialize();           
-            Console.WriteLine("Maximum: " + Statistics.Maximum(temp));
-            Console.WriteLine("Minimum: " + Statistics.Minimum(temp));
-            Console.WriteLine("Medelvärde: " + Statistics.Mean(temp));
-            Console.WriteLine("Median: " + Statistics.Median(temp));
-            Console.WriteLine("Typvärde: " + Statistics.Mode(temp)[0] + ", " +Statistics.Mode(temp)[1] + ", " + Statistics.Mode(temp)[2]); //typvärde ur en av värdena
-            Console.WriteLine("Variationsbredd: " + Statistics.Range(temp));
-            Console.WriteLine("Standardavvikelse: "+Statistics.StandardDeviation(temp));
+
+        case 1: 
+            //Presentera data från class Presentation av data som tar Json filen från class DeserializeJson
+            Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(DeserializeJson.Deserialize()));              
+
             break;
         case 2:
             //Välj json fil och presentera data
