@@ -18,7 +18,8 @@ while (true)
     switch (menuChoice)
     {
         case 1: 
-            Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(DeserializeJson.Deserialize()));              //Presentera data från class Presentation av data som tar Json filen från class DeserializeJson
+            //Presentera data från class Presentation av data som tar Json filen från class DeserializeJson
+            Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(DeserializeJson.Deserialize()));              
             break;
         case 2:
             //Välj json fil och presentera data
