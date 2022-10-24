@@ -27,6 +27,7 @@ namespace Beskrivande_Statistik
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"\nTypvärde: {presentFile["Mode"][0]}, " +
                                             $"{presentFile["Mode"][1]}, " +
+                                            $"{presentFile["Mode"][2]}");                          //vit 
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nVariationsbredd: {presentFile["Range"]}");                       //grå
             Console.ForegroundColor = ConsoleColor.White;
@@ -37,11 +38,5 @@ namespace Beskrivande_Statistik
 
             Console.ReadKey(); 
         }
-        //public static void PresentExtensions()
-        //{
-        //    dynamic presentFile = Extensions.DescriptiveExtensions(DeserializeJson.Deserialize());
-        //    Console.ForegroundColor = ConsoleColor.White;
-        //    Console.WriteLine($"\nPrimeNumber: {presentFile["PrimeNumber"]}");
-        //}
     } 
 }
