@@ -26,7 +26,6 @@ public static class ReadJsonFile
         // if the user input does not match a json file throw error message and try again
         else
         {
-            Console.Clear();
             Console.WriteLine("File does not exist. Please try again.");
             return null;
         }
