@@ -10,6 +10,7 @@ namespace Beskrivande_Statistik
     {
         public static dynamic DescriptiveStatistics(int[] source)
         {
+
             Dictionary<string, dynamic> response = new Dictionary<string, dynamic>()
             {
                 {"Maximum", Maximum(source)},
@@ -37,7 +38,9 @@ namespace Beskrivande_Statistik
             return Math.Round(mean, 1);
         }
 
+
         public static double Median(int[] source)
+        
         {
             Array.Sort(source);
 
@@ -46,6 +49,7 @@ namespace Beskrivande_Statistik
             else
                 return source[source.Length / 2];
         }
+
 
         public static int Minimum(int[] source)
         {
@@ -77,8 +81,6 @@ namespace Beskrivande_Statistik
             int range = 0;
             range = source.Max() - source.Min();
             return range;
-
-            return source[0];
         }
         public static double StandardDeviation(int[] source)
         {
