@@ -5,6 +5,9 @@ while (true)
     Console.Clear();
     int menuChoice;
 
+    UserCreateJson.UserJson();
+
+
     Console.WriteLine("Välkommen!");
     Console.WriteLine("--------------------------------------------");
     Console.WriteLine("Välj ett alternativ: ");
@@ -22,7 +25,7 @@ while (true)
 
         case 1: 
             //Presentera data från class Presentation av data som tar Json filen från class DeserializeJson
-            Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(ReadJsonFile.Deserialize()));              
+            //Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(ReadJsonFile.Deserialize()));              
             break;
         case 2:
             ReadCustomJson.Open();    //Välj json fil och presentera data
