@@ -5,11 +5,16 @@ while (true)
     int menuChoice;
     Console.Clear();
 
-    /* tillfällig kod för att testa uträkningar.
+        
+    // tillfällig kod för att testa uträkningar.
     int[] temp = ReadJsonFile.Deserialize();
-    Console.WriteLine("Median: " + Statistics.Median(temp));
-    */
-    UserCreateJson.UserJson();
+    Console.WriteLine("Minimum: " + Statistics.Minimum(temp));
+
+
+
+    // UserCreateJson.UserJson();
+
+
 
     Console.WriteLine("Välkommen!");
     Console.WriteLine("--------------------------------------------");

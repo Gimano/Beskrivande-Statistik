@@ -60,7 +60,9 @@ namespace Beskrivande_Statistik
                     }
                     break;
 
-                    case "2":
+
+                // ej färdig, är det rimligt med try catch x3 med 3 olika labels att gå tillbaka till vid caught exception? finns det bättre sätt?
+                case "2":
                     Console.Write("How many randomly generated integer numbers do you want to add to your list?: ");
                     int numberOfInts = int.Parse(Console.ReadLine());
                     Console.Write("Lowest possible number to be generated: ");
@@ -78,5 +80,14 @@ namespace Beskrivande_Statistik
                     break;
             }
         }
+        //public static int ErrorHandling()
+        //{
+        //    try
+        //    {
+
+        //    }
+        //    return 0;
+        //}
+
     }
 }
