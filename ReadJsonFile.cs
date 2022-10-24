@@ -4,18 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Beskrivande_Statistik;
 
-public static class DeserializeJson
+
+// Niklas
+public static class ReadJsonFile
 {
     public static int[] Deserialize()
     {
-        // Read the json file
-        var path = "data.json";
-        string jsonFile = File.ReadAllText(path);
+    noFileLabel:
+        // let the user make a choice of which file to use
+        Console.Write("Which file do you want to use: ");
+        string path = Console.ReadLine();
 
-        // decerialize the json file into array Numbersdata
-        int[] NumbersData = JsonConvert.DeserializeObject<int[]>(jsonFile);
+        if (File.Exists(path))
+        {
+            // reads the json file the user has chosen
+            string jsonFile = File.ReadAllText(path);
 
-        return NumbersData;
+            // return the json file as an array of ints called NumbersData
+            int[] NumbersData = JsonConvert.DeserializeObject<int[]>(jsonFile);
+            Console.Clear();
+            return NumbersData;
+        }
+
+        // if the user input does not match a json file throw error message and try again
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("File does not exist. Please try again.");
+            goto noFileLabel;
+        }
+
     }
 }

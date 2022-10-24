@@ -7,31 +7,35 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
-    internal static class Presentation_av_data
+    internal static class Presentation_av_data   
     {
-        public static void presentation_av_data()                                                  //ha olika färg då bli texten lättläst
+        public static void presentation_av_data(dynamic presentFile)                                                  //ha olika färg då bli texten lättläst
         {
-            dynamic presentFile = Statistics.DescriptiveStatistics(DeserializeJson.Deserialize());  //ropa till class Statistics 
-
-            Console.ForegroundColor = ConsoleColor.White;
+            //Statistics.DescriptiveStatistics(DeserializeJson.Deserialize());  //ropa till class Statistics 
+            
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("\nVoilà");
+            Console.WriteLine("-------"); 
+            Console.ForegroundColor = ConsoleColor.White;   
             Console.WriteLine($"\nMaximum: {presentFile["Maximum"]}");                             //vit
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nMinimum: {presentFile["Minimum"]}");                             //grå
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.White;       
             Console.WriteLine($"\nMedelvärde: {presentFile["Mean"]}");                             //vit
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nMedian: {presentFile["Median"]}");                               //grå
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"\nTypvärde: {presentFile["Mode"][0]}, " +
-                                          $"{presentFile["Mode"][1]}, " +
-                                          $"{presentFile["Mode"][2]}");                            //vit 
+                                            $"{presentFile["Mode"][1]}, " +
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nVariationsbredd: {presentFile["Range"]}");                       //grå
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"\nStandardavvikelse: {presentFile["StandardDeviation"]} ");        //vit
-            Console.ForegroundColor = ConsoleColor.Gray;                                           //grå 
+            Console.ForegroundColor = ConsoleColor.Gray;                                       
+            Console.WriteLine("\n-------------------------------------------");                    //grå
+            Console.ForegroundColor = ConsoleColor.Gray;                                           //grå
 
-            Console.ReadKey();
+            Console.ReadKey(); 
         }
         //public static void PresentExtensions()
         //{
@@ -39,5 +43,5 @@ namespace Beskrivande_Statistik
         //    Console.ForegroundColor = ConsoleColor.White;
         //    Console.WriteLine($"\nPrimeNumber: {presentFile["PrimeNumber"]}");
         //}
-    }
+    } 
 }
