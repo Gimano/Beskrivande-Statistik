@@ -2,8 +2,9 @@
 
 while (true)
 {
-    
+    Console.Clear();
     int menuChoice;
+
     Console.WriteLine("Välkommen!");
     Console.WriteLine("--------------------------------------------");
     Console.WriteLine("Välj ett alternativ: ");
@@ -12,6 +13,7 @@ while (true)
     Console.WriteLine("3. Generera en json fil med nummer.");
     Console.WriteLine("4. Avsluta");
     Console.WriteLine("--------------------------------------------");
+
     
     
     while (!int.TryParse(Console.ReadLine(), out menuChoice));
@@ -21,7 +23,6 @@ while (true)
         case 1: 
             //Presentera data från class Presentation av data som tar Json filen från class DeserializeJson
             Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(DeserializeJson.Deserialize()));              
-
             break;
         case 2:
             ReadCustomJson.Open();    //Välj json fil och presentera data
