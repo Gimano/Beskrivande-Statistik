@@ -17,6 +17,8 @@ while (true)
     {
         case 1:
             //Presentera data
+            Presentation_av_data.presentation_av_data();
+            Presentation_av_data.PresentExtensions();
             break;
         case 2:
             //Välj json fil och presentera data
