@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
-    //  KANSKE SKA MAN FÅ VÄLJA VAD FÖR MEDELVÄRDEN .JSON FILEN SKA HA ETC ??? kan vara en kul extrafunktion, fundera på det.
     public static class UserCreateJson
     {
         public static void UserJson()
@@ -48,6 +47,10 @@ namespace Beskrivande_Statistik
                             }
                     }
                     break;
+
+                    // OM LÄGSTA ÄR STÖRRE ÄN HÖGSTA BLIR DET ERROR. FIXA DET MED TEMP VARIABLER
+                    // SÄTT EN RANGE PÅ 1 - 10 MILJONER PÅ numberOfInts
+                    // Om man väljer numberOfInts över 1 miljon ge en varning - Vill du verkligen göra det här?
 
                 // lets the user chose how many integers to be added to the jsonfile and also chose within which range the numbers can be created from a random.
                 case "2":

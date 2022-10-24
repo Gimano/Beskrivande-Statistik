@@ -23,7 +23,7 @@ public static class ReadJsonFile
             return NumbersData;
         }
 
-        // if the user input does not match a json file throw error message and try again
+        // if the user input does not match a json file return null
         else
         {
             Console.WriteLine("File does not exist. Please try again.");
