@@ -26,7 +26,6 @@ while (true)
             ReadCustomJson.Open();
             break;
         case 3:
-            UserCreateJson.UserJson();
             //Skapa en json fil och fyll med data
             UserCreateJson.UserJson();
             break;
