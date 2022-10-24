@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
-    // Vill du mata in egna värden eller vill du generera ett antal random värden?????? BYGG DET - DU SKA JOBBA HÄR ( KANSKE SKA MAN FÅ VÄLJA VAD FÖR MEDELVÄRDEN .JSON FILEN SKA HA ETC)
-    // NIKLAS
+    //  KANSKE SKA MAN FÅ VÄLJA VAD FÖR MEDELVÄRDEN .JSON FILEN SKA HA ETC ??? kan vara en kul extrafunktion, fundera på det.
     public static class UserCreateJson
     {
         public static void UserJson()
@@ -28,7 +27,7 @@ namespace Beskrivande_Statistik
             switch (jsonChoice)
             {
                 case "1":
-                    // Let user add integers to IntList untill input is 0, also if formatexception go to label and keep looping
+                    // Let user add integers to IntList untill input is 0.
                     while (true)
                     {
                         int input = 0;
