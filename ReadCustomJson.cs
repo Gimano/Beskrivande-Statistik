@@ -14,14 +14,14 @@ namespace Beskrivande_Statistik
             Console.Clear();
             Display();
             Console.WriteLine("------------------------------------------------------");
-            Create();
+            Input();
         }
-        public static void Create()
+        public static void Input()
         {
             Console.WriteLine("Skriv in namnet på filen du vill läsa (utan .json): ");
             string fileName = Console.ReadLine();
-            int[] data = Deserialize(fileName);
-            Presentation_av_data.presentation_av_data();
+            var data = Statistics.DescriptiveStatistics(Deserialize(fileName));
+            Presentation_av_data.presentation_av_data(data);
         }
 
         public static void Display()
