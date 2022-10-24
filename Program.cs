@@ -5,9 +5,6 @@ while (true)
     Console.Clear();
     int menuChoice;
 
-    UserCreateJson.UserJson();
-
-
     Console.WriteLine("Välkommen!");
     Console.WriteLine("--------------------------------------------");
     Console.WriteLine("Välj ett alternativ: ");
@@ -31,6 +28,7 @@ while (true)
             ReadCustomJson.Open();    //Välj json fil och presentera data
             break;
         case 3:
+            UserCreateJson.UserJson();
             //Skapa en json fil och fyll med data
             break;
         default:
