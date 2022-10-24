@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -80,14 +82,26 @@ namespace Beskrivande_Statistik
                     break;
             }
         }
-        //public static int ErrorHandling()
-        //{
-        //    try
-        //    {
 
-        //    }
-        //    return 0;
-        //}
+        public static int ExceptionHandling()
+        {
+            ExceptionHandlingLabel:
+            int intToTry = 0;
+            try
+            {
+                intToTry = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.Write("Invalid input. Input only accept integers.\nPlease try again: ");
+            }
+            catch (OverflowException)
+            {
+                Console.Write("Input out of range, stay inside integer range please.\nPlease try again: ");
+                goto ExceptionHandlingLabel;
+            }
+            return intToTry;
+        }
 
     }
 }
