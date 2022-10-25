@@ -23,7 +23,7 @@ namespace Beskrivande_Statistik
         InvalidInput:
 
             Console.Write($"[1] Manually add integers to {fileName}.\n[2] Fill {fileName} with random integers.\nInput: ");
-            string jsonChoice = Console.ReadLine();
+            string jsonChoice = Console.ReadLine();         
             switch (jsonChoice)
             {
                 case "1":
@@ -56,16 +56,19 @@ namespace Beskrivande_Statistik
                 case "2":
                     int numberOfInts = 0;
                     int lowRnd = 0;
-                    int highRnd = 0;
+                    int highRnd = 0;                
                     string confirmInts = "";
+
                 regretDecision:
                     Console.Write("How many randomly generated integer numbers do you want to add to your list?: ");
                     numberOfInts = ExceptionHandling(numberOfInts);
+                   
                     while (numberOfInts < 1 || numberOfInts > 10000000)
                     {
                         Console.WriteLine("Range has to be between 1 - 10.000.000. Please try again.");
                         numberOfInts = ExceptionHandling(numberOfInts);
                     }
+                   
                     if (numberOfInts >= 1000000)
                     {
                         Console.Write("You chose to generate more than 1 million integers into a file.\nThis will take up alot of resources and space from your computer.\nAre you sure you want to continue? (Y/N): ");
@@ -82,10 +85,16 @@ namespace Beskrivande_Statistik
                             else Console.Write("Invalid option. Do you want to continue? (Y/N): ");
                         }
                     }
+                   
                     Console.Write("Lowest possible number to be generated: ");
                     lowRnd = ExceptionHandling(lowRnd);
-                    Console.Write("Highest possible number to be generated: ");
-                    highRnd = ExceptionHandling(highRnd);
+                    
+                    while (lowRnd >= highRnd)
+                    { 
+                        Console.Write($"Highest possible number to be generated (can not be lower than {lowRnd}): ");
+                        highRnd = ExceptionHandling(highRnd);
+                    }
+                    
                     for (int i = 0; i < numberOfInts; i++)
                     {
                         Random rnd = new Random();

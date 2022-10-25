@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Beskrivande_Statistik;
 
 
+
 // Niklas
 public static class ReadJsonFile
 {
