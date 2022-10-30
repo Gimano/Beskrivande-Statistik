@@ -28,6 +28,8 @@ namespace Beskrivande_Statistik
                 jsonChoice = Console.ReadLine();
                 switch (jsonChoice)
                 {
+
+                    #region Case 1 - Manually add integers to list
                     case "1":
                         // Let user add integers to IntList untill input is 0.
                         while (true)
@@ -50,7 +52,9 @@ namespace Beskrivande_Statistik
                             }
                         }
                         break;
+                    #endregion
 
+                    #region Case 2 - Fill list with random integers
                     // lets the user chose how many integers to be added to the jsonfile and also chose within which range the numbers can be created from a random. (1 - 10 million capped)
                     // if the user choses more than 1 million - ask them if they want to proceed
                     case "2":
@@ -106,10 +110,15 @@ namespace Beskrivande_Statistik
                         string jsonWithRnd = JsonConvert.SerializeObject(IntList, Formatting.Indented);
                         File.WriteAllText(fileName, jsonWithRnd);
                         break;
+                    #endregion
+
+                    #region Default
                     default:
                         Console.Clear();
                         Console.WriteLine("Felaktig inmatning");
                         break;
+                        #endregion
+
                 }
             }
         }
@@ -118,21 +127,21 @@ namespace Beskrivande_Statistik
         // I made this to avoid repeating myself with alot of try catches in the rest of the code.
         public static int ExceptionHandling(int intToTry)
         {
-        ExceptionHandlingLabel:
-            try
+            while (true)
             {
-                int temp = int.Parse(Console.ReadLine());
-                return temp;
-            }
-            catch (FormatException)
-            {
-                Console.Write("Invalid input. Input only accept integers.\nPlease try again: ");
-                goto ExceptionHandlingLabel;
-            }
-            catch (OverflowException)
-            {
-                Console.Write("Input out of range, stay inside integer range please.\nPlease try again: ");
-                goto ExceptionHandlingLabel;
+                try
+                {
+                    int temp = int.Parse(Console.ReadLine());
+                    return temp;
+                }
+                catch (FormatException)
+                {
+                    Console.Write("Invalid input. Input only accept integers.\nPlease try again: ");
+                }
+                catch (OverflowException)
+                {
+                    Console.Write("Input out of range, stay inside integer range please.\nPlease try again: ");
+                }
             }
         }
 
