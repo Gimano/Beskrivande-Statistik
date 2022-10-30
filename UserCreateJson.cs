@@ -21,7 +21,7 @@ namespace Beskrivande_Statistik
             List<int> IntList = new List<int>();
             Console.Clear();
             string jsonChoice = "";
-        InvalidInput:
+
             while (jsonChoice != "0") 
             {
                 Console.Write($"[1] Manually add integers to {fileName}.\n[2] Fill {fileName} with random integers.\n[0] Exit to menu\nInput: ");
