@@ -92,7 +92,7 @@ namespace Beskrivande_Statistik
             var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
             // Hämtar bara typvärdena
             int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
-
+            
             return mode;
         }
 

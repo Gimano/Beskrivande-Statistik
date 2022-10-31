@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -51,6 +52,7 @@ namespace Beskrivande_Statistik
                                 break;
                             }
                         }
+                        jsonChoice = "0";
                         break;
                     #endregion
 
@@ -109,6 +111,8 @@ namespace Beskrivande_Statistik
                         // serializes the elements of IntList and writes them to fileName.json, with indentation
                         string jsonWithRnd = JsonConvert.SerializeObject(IntList, Formatting.Indented);
                         File.WriteAllText(fileName, jsonWithRnd);
+
+                        jsonChoice = "0";
                         break;
                     #endregion
 
@@ -144,6 +148,5 @@ namespace Beskrivande_Statistik
                 }
             }
         }
-
     }
 }

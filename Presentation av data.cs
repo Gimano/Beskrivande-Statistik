@@ -31,13 +31,9 @@ namespace Beskrivande_Statistik
             
             Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine("Typvärde : ");
+            Console.Write($"\nTypvärde: ");                                                        //vit
+            Console.WriteLine(string.Join(", ", presentFile["Mode"]));
 
-            foreach (var i in presentFile["Mode"])
-            {
-                Console.WriteLine($" {i}");                                                       //vit 
-            }
-            
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nVariationsbredd: {presentFile["Range"]}");                       //grå
             
@@ -49,6 +45,7 @@ namespace Beskrivande_Statistik
             Console.WriteLine("\n-------------------------------------------");                    //grå
             
             Console.ForegroundColor = ConsoleColor.Gray;                                           //grå
+
             Console.ReadKey(); 
         }
     } 
