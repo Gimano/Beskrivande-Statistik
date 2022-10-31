@@ -65,7 +65,7 @@ namespace Beskrivande_Statistik
                 throw new ArgumentNullException("Sequence is null.");
             if (source.Length == 0)
                 throw new InvalidOperationException("Sequence contains no elements.");
-
+                
             var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
 
             var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
