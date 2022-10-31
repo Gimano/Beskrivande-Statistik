@@ -17,19 +17,19 @@ public static class ReadJsonFile
         {
             if (File.Exists(path))
             {
-                // reads the json file the user has chosen
+                // läs in den json filen användaren väljer
                 string jsonFile = File.ReadAllText(path);
 
-                // return the json file as an array of ints called NumbersData
+                // returnera filen som en array av integers
                 int[] NumbersData = JsonConvert.DeserializeObject<int[]>(jsonFile);
                 Console.Clear();
                 return NumbersData;
             }
 
-            // if the user input does not match a json file throw error message and try again
+            // om användarens inmatning inte matchar namnet med en jsonfil -> error message -> försök igen
             else
             {
-                Console.WriteLine("File does not exist. Please try again.");
+                Console.WriteLine("Filen finns inte. Försök igen.");
                 return null;
             }
         }
