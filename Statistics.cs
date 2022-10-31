@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
+    // Klass fylld med metoder för uträkningar av json filerna
+
     public static class Statistics
     {
         public static dynamic DescriptiveStatistics(int[] source)
