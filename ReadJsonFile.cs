@@ -39,5 +39,10 @@ public static class ReadJsonFile
             Console.WriteLine("Json-filen innehåller data som ej kan deserialiseras.");
             return null;
         }
+        catch (JsonSerializationException)
+        {
+            Console.WriteLine("Json-filen kan ej serialiseras.");
+            return null;
+        }
     }
 }
