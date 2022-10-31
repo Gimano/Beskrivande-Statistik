@@ -29,15 +29,16 @@ namespace Beskrivande_Statistik
         }
         public static void Input()
         {
-            Console.WriteLine("Skriv in namnet på filen du vill läsa (med .json) eller tryck enter för att gå tillbaka:");
+            Console.WriteLine("Skriv in namnet på filen du vill läsa (utan .json) eller tryck enter för att gå tillbaka:");
 
             while (true)
             {
-                string fileName = Console.ReadLine();
+                string fileName = Console.ReadLine() + ".json";
 
-                if (fileName == "")
+                if (fileName == ".json")
                     break;
 
+                
                 else if (ReadJsonFile.Deserialize(fileName) != null)
                 {
                     dynamic data = Statistics.DescriptiveStatistics(ReadJsonFile.Deserialize(fileName));
