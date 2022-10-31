@@ -3,8 +3,6 @@
 while (true)
 {
     Console.Clear();
-    int menuChoice;
-
     Console.WriteLine("Välkommen!");
     Console.WriteLine("--------------------------------------------");
     Console.WriteLine("Välj ett alternativ: ");
@@ -14,11 +12,13 @@ while (true)
     Console.WriteLine("4. Avsluta");
     Console.WriteLine("--------------------------------------------");
 
+    int menuChoice;
     while (!int.TryParse(Console.ReadLine(), out menuChoice));
+
     switch (menuChoice)
     {
         case 1: 
-            //Presentera data från class Presentation av data som tar Json filen från class DeserializeJson
+            //Presentera data från data.json
             Presentation_av_data.presentation_av_data(Statistics.DescriptiveStatistics(ReadJsonFile.Deserialize("data.json")));              
             break;
         case 2:
@@ -29,9 +29,10 @@ while (true)
             //Skapa en json fil och fyll med data
             UserCreateJson.UserJson();
             break;
+        case 4:
+            Environment.Exit(0);
+            break;
         default:
             break;
     }
-    if (menuChoice == 4)
-        break;
 }
