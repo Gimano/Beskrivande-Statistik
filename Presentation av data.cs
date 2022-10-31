@@ -9,10 +9,8 @@ namespace Beskrivande_Statistik
 {
     internal static class Presentation_av_data   
     {
-        public static void presentation_av_data(dynamic presentFile)                                                  //ha olika färg då bli texten lättläst
-        {
-            //Statistics.DescriptiveStatistics(DeserializeJson.Deserialize());  //ropa till class Statistics 
-            
+        public static void presentation_av_data(dynamic presentFile)            //ha olika färg då bli texten lättläst
+        {   
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("\nVoilà");
             Console.WriteLine("-------"); 
@@ -31,13 +29,9 @@ namespace Beskrivande_Statistik
             
             Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine("Typvärde : ");
+            Console.Write($"\nTypvärde: ");                                                        //vit
+            Console.WriteLine(string.Join(", ", presentFile["Mode"]));
 
-            foreach (var i in presentFile["Mode"])
-            {
-                Console.WriteLine($" {i}");                                                       //vit 
-            }
-            
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nVariationsbredd: {presentFile["Range"]}");                       //grå
             
@@ -49,6 +43,7 @@ namespace Beskrivande_Statistik
             Console.WriteLine("\n-------------------------------------------");                    //grå
             
             Console.ForegroundColor = ConsoleColor.Gray;                                           //grå
+
             Console.ReadKey(); 
         }
     } 
