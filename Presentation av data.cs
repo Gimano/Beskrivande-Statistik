@@ -23,11 +23,11 @@ namespace Beskrivande_Statistik
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nMinimum: {presentFile["Minimum"]}");                             //grå
             
-            Console.ForegroundColor = ConsoleColor.White;       
-            Console.WriteLine($"\nMedelvärde: {presentFile["Mean"]}");                             //vit
-            
+            Console.ForegroundColor = ConsoleColor.White;   
+  
+            Console.WriteLine($"\nMedelvärde: {Math.Round(presentFile["Mean"], 1)}");                             //vit
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine($"\nMedian: {presentFile["Median"]}");                               //grå
+            Console.WriteLine($"\nMedian: {Math.Round(presentFile["Median"], 1)}");                               //grå
             
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -42,7 +42,8 @@ namespace Beskrivande_Statistik
             Console.WriteLine($"\nVariationsbredd: {presentFile["Range"]}");                       //grå
             
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"\nStandardavvikelse: {presentFile["StandardDeviation"]} ");        //vit
+           
+            Console.WriteLine($"\nStandardavvikelse: {Math.Round(presentFile["StandardDeviation"], 1)} ");        //vit
             
             Console.ForegroundColor = ConsoleColor.Gray;                                       
             Console.WriteLine("\n-------------------------------------------");                    //grå
@@ -52,7 +53,3 @@ namespace Beskrivande_Statistik
         }
     } 
 }
-// fixar Mode, börjar med foreach eller med loop  
-// MODE ska inte skriva ut 3 gånger så där. utan skriver ut bara de MODE som finns i filen. för vi har en fil till som inte är Json filen  
-// skriver ut hur många MODE som finns (inte 3 saker) 
- 
