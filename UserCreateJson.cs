@@ -48,8 +48,17 @@ namespace Beskrivande_Statistik
                             }
                             else
                             {
-                                string json = JsonConvert.SerializeObject(IntList, Formatting.Indented);
-                                File.WriteAllText(fileName, json);
+                                try
+                                {
+                                    string json = JsonConvert.SerializeObject(IntList, Formatting.Indented);
+                                    File.WriteAllText(fileName, json);
+                                }
+                                catch (IOException)
+                                {
+                                    Console.Write("Ogiltigt filnamn.\nTryck enter för att gå tillbaka till menyn.");
+                                    Console.ReadLine();
+                                }
+                                
                                 break;
                             }
                         }
@@ -111,8 +120,16 @@ namespace Beskrivande_Statistik
                         }
 
                         // serialiserar elementen i IntList och skriver dom till fileName.json, med indentation
-                        string jsonWithRnd = JsonConvert.SerializeObject(IntList, Formatting.Indented);
-                        File.WriteAllText(fileName, jsonWithRnd);
+                        try
+                        {
+                            string jsonWithRnd = JsonConvert.SerializeObject(IntList, Formatting.Indented);
+                            File.WriteAllText(fileName, jsonWithRnd);
+                        }
+                        catch (IOException)
+                        {
+                            Console.Write("Ogiltigt filnamn.\nTryck enter för att gå tillbaka till menyn.");
+                            Console.ReadLine();
+                        }
 
                         jsonChoice = "0";
                         break;
