@@ -11,7 +11,7 @@ namespace Beskrivande_Statistik
         public static dynamic DescriptiveStatistics(int[] source)
         {
             if (source == null)
-                throw new ArgumentNullException("Sequence is null.");
+                throw new ArgumentNullException();
             if (source.Length == 0)
                 throw new InvalidOperationException("Sequence contains no elements.");
 
@@ -30,6 +30,11 @@ namespace Beskrivande_Statistik
 
         public static int Maximum(int[] source)
         {
+            if (source == null)
+                throw new ArgumentNullException();
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
+
             int maximum = 0;
             maximum = source.Max();
             return maximum;
@@ -37,6 +42,11 @@ namespace Beskrivande_Statistik
 
         public static double Mean(int[] source)
         {
+            if (source == null)
+                throw new ArgumentNullException();
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
+
             double mean = 0;
             mean = source.Average();
             return mean;
@@ -44,8 +54,12 @@ namespace Beskrivande_Statistik
 
 
         public static double Median(int[] source)
-        
         {
+            if (source == null)
+                throw new ArgumentNullException();
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
+
             Array.Sort(source);
 
             if (source.Length % 2 == 0)
@@ -57,6 +71,11 @@ namespace Beskrivande_Statistik
 
         public static int Minimum(int[] source)
         {
+            if (source == null)
+                throw new ArgumentNullException();
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
+
             int minimum = 0;
             minimum = source.Min();
             return minimum;
@@ -64,16 +83,13 @@ namespace Beskrivande_Statistik
 
         public static int[] Mode(int[] source)
         {
-
             if (source == null)
-                throw new ArgumentNullException("Sequence is null.");
+                throw new ArgumentNullException();
             if (source.Length == 0)
                 throw new InvalidOperationException("Sequence contains no elements.");
                 
             var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
-
             var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
-
             // Hämtar bara typvärdena
             int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
 
@@ -82,12 +98,22 @@ namespace Beskrivande_Statistik
 
         public static int Range(int[] source)
         {
+            if (source == null)
+                throw new ArgumentNullException();
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
+
             int range = 0;
             range = source.Max() - source.Min();
             return range;
         }
         public static double StandardDeviation(int[] source)
         {
+            if (source == null)
+                throw new ArgumentNullException();
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
+
             double devation = 0.0;
             int count = source.Count();
             double medel = Mean(source);
