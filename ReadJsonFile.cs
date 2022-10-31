@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Beskrivande_Statistik;
 
 
+
 // Niklas
 public static class ReadJsonFile
 {
@@ -33,6 +34,7 @@ public static class ReadJsonFile
             }
         }
         catch (JsonReaderException)
+
         {
             Console.WriteLine("Json-filen innehåller data som ej kan deserialiseras.");
             return null;

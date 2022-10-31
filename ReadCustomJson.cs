@@ -20,7 +20,7 @@ namespace Beskrivande_Statistik
         {
             string root = Directory.GetCurrentDirectory();
 
-            string[] files = Directory.GetFiles(root, "*.json", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(root, "*.json", SearchOption.AllDirectories).Where(name => !name.Contains("Beskrivande Statistik")).ToArray();
             Console.WriteLine("Tillgängliga JSON filer:");
             foreach (var file in files)
             {
@@ -29,11 +29,16 @@ namespace Beskrivande_Statistik
         }
         public static void Input()
         {
+            Console.WriteLine("Skriv in namnet på filen du vill läsa (med .json) eller tryck enter för att gå tillbaka:");
+
             while (true)
             {
-                Console.WriteLine("Skriv in namnet på filen du vill läsa (med .json): ");
                 string fileName = Console.ReadLine();
-                if (ReadJsonFile.Deserialize(fileName) != null)
+
+                if (fileName == "")
+                    break;
+
+                else if (ReadJsonFile.Deserialize(fileName) != null)
                 {
                     dynamic data = Statistics.DescriptiveStatistics(ReadJsonFile.Deserialize(fileName));
                     Presentation_av_data.presentation_av_data(data);
