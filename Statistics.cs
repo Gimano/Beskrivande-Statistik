@@ -72,7 +72,7 @@ namespace Beskrivande_Statistik
 
             // Hämtar bara typvärdena
             int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
-
+            
             return mode;
         }
 
