@@ -16,27 +16,43 @@ namespace Beskrivande_Statistik
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("\nVoilà");
             Console.WriteLine("-------"); 
+            
             Console.ForegroundColor = ConsoleColor.White;   
             Console.WriteLine($"\nMaximum: {presentFile["Maximum"]}");                             //vit
+            
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nMinimum: {presentFile["Minimum"]}");                             //grå
+            
             Console.ForegroundColor = ConsoleColor.White;       
             Console.WriteLine($"\nMedelvärde: {presentFile["Mean"]}");                             //vit
+            
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nMedian: {presentFile["Median"]}");                               //grå
+            
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"\nTypvärde: {presentFile["Mode"][0]}, " +
-                                            $"{presentFile["Mode"][1]}, " +
-                                            $"{presentFile["Mode"][2]}");                          //vit 
+
+            Console.WriteLine("Typvärde : ");
+
+            foreach (var i in presentFile["Mode"])
+            {
+                Console.WriteLine($" {i}");                                                       //vit 
+            }
+            
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nVariationsbredd: {presentFile["Range"]}");                       //grå
+            
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"\nStandardavvikelse: {presentFile["StandardDeviation"]} ");        //vit
+            
             Console.ForegroundColor = ConsoleColor.Gray;                                       
             Console.WriteLine("\n-------------------------------------------");                    //grå
+            
             Console.ForegroundColor = ConsoleColor.Gray;                                           //grå
-
             Console.ReadKey(); 
         }
     } 
 }
+// fixar Mode, börjar med foreach eller med loop  
+// MODE ska inte skriva ut 3 gånger så där. utan skriver ut bara de MODE som finns i filen. för vi har en fil till som inte är Json filen  
+// skriver ut hur många MODE som finns (inte 3 saker) 
+ 
