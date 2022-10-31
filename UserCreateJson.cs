@@ -51,6 +51,7 @@ namespace Beskrivande_Statistik
                                 break;
                             }
                         }
+                        jsonChoice = "0";
                         break;
                     #endregion
 
@@ -109,6 +110,8 @@ namespace Beskrivande_Statistik
                         // serializes the elements of IntList and writes them to fileName.json, with indentation
                         string jsonWithRnd = JsonConvert.SerializeObject(IntList, Formatting.Indented);
                         File.WriteAllText(fileName, jsonWithRnd);
+
+                        jsonChoice = "0";
                         break;
                     #endregion
 
