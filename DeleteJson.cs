@@ -8,6 +8,7 @@ namespace Beskrivande_Statistik
 {
     internal class DeleteJson
     {
+        // En metod där användaren får välja en json fil den vill ta bort
         public static void Delete()
         {
             Console.Clear();
