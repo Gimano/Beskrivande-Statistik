@@ -25,10 +25,10 @@ namespace Beskrivande_Statistik
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"\nMedian: {presentFile["Median"]}");                               //grå
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write($"\nTypvärde: ");                                                         //vit
-            Console.Write(string.Join(", ", presentFile["Mode"]));
+            Console.Write($"\nTypvärde: ");                                                        //vit
+            Console.WriteLine(string.Join(", ", presentFile["Mode"]));
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine($"\n\nVariationsbredd: {presentFile["Range"]}");                     //grå
+            Console.WriteLine($"\nVariationsbredd: {presentFile["Range"]}");                       //grå
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"\nStandardavvikelse: {presentFile["StandardDeviation"]} ");        //vit
             Console.ForegroundColor = ConsoleColor.Gray;                                       
