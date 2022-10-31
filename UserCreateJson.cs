@@ -16,12 +16,13 @@ namespace Beskrivande_Statistik
     {
         public static void UserJson()
         {
+            Console.Clear();
             Console.Write("Vad ska din fil heta: ");
             string fileName = Console.ReadLine();
             fileName = fileName + ".json";
             List<int> IntList = new List<int>();
-            Console.Clear();
             string jsonChoice = "";
+            Console.Clear();
 
             while (jsonChoice != "0") 
             {
