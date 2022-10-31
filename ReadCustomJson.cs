@@ -20,7 +20,7 @@ namespace Beskrivande_Statistik
         {
             string root = Directory.GetCurrentDirectory();
 
-            string[] files = Directory.GetFiles(root, "*.json", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(root, "*.json", SearchOption.AllDirectories).Where(name => !name.Contains("Beskrivande Statistik")).ToArray();
             Console.WriteLine("Tillgängliga JSON filer:");
             foreach (var file in files)
             {

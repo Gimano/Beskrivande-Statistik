@@ -49,7 +49,7 @@ namespace Beskrivande_Statistik
 
             double mean = 0;
             mean = source.Average();
-            return Math.Round(mean, 1);
+            return mean;
         }
 
 
@@ -124,7 +124,7 @@ namespace Beskrivande_Statistik
                 double sum = source.Sum(d=> (d-medel) * (d-medel));
                 
                 devation = Math.Sqrt(sum / count);
-                u = Math.Round(devation, 1); // avrundar svaret till en decimal
+                u = devation;
             }
             return u;
 
