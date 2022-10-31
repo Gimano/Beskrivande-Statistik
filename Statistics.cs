@@ -94,7 +94,7 @@ namespace Beskrivande_Statistik
                 double sum = source.Sum(d=> (d-medel) * (d-medel));
                 
                 devation = Math.Sqrt(sum / count);
-                u = devation; // avrundar svaret till en decimal
+                u = devation;
             }
             return u;
 
