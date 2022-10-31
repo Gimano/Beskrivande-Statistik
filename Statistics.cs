@@ -10,6 +10,10 @@ namespace Beskrivande_Statistik
     {
         public static dynamic DescriptiveStatistics(int[] source)
         {
+            if (source == null)
+                throw new ArgumentNullException("Sequence is null.");
+            if (source.Length == 0)
+                throw new InvalidOperationException("Sequence contains no elements.");
 
             Dictionary<string, dynamic> response = new Dictionary<string, dynamic>()
             {
