@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Beskrivande_Statistik;
 
-
-
 // Niklas
 public static class ReadJsonFile
 {
@@ -33,6 +31,8 @@ public static class ReadJsonFile
                 return null;
             }
         }
+
+        // Markus
         catch (JsonReaderException)
 
         {

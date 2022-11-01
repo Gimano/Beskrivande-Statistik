@@ -109,6 +109,8 @@ namespace Beskrivande_Statistik
             range = source.Max() - source.Min();
             return range;
         }
+
+        // Herman
         public static double StandardDeviation(int[] source)
         {
             if (source == null)

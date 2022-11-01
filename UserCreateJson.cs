@@ -2,6 +2,9 @@
 
 namespace Beskrivande_Statistik
 {
+
+    // Niklas (Martin har hjälpt till att lösa vissa logiska problem)
+
     public static class UserCreateJson
     {
         public static List<int> IntList = new List<int>();
