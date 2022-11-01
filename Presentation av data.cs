@@ -9,10 +9,8 @@ namespace Beskrivande_Statistik
 {
     internal static class Presentation_av_data   
     {
-        public static void presentation_av_data(dynamic presentFile)                                                  //ha olika färg då bli texten lättläst
-        {
-            //Statistics.DescriptiveStatistics(DeserializeJson.Deserialize());  //ropa till class Statistics 
-            
+        public static void presentation_av_data(dynamic presentFile)            //ha olika färg då bli texten lättläst
+        {   
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("\nVoilà");
             Console.WriteLine("-------"); 
