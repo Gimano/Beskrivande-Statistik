@@ -7,44 +7,97 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
-    internal static class Presentation_av_data   
+    internal static class Presentation_av_data   //Krittapat 
     {
         public static void presentation_av_data(dynamic presentFile)            //ha olika färg då bli texten lättläst
-        {   
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("\nVoilà");
-            Console.WriteLine("-------"); 
+        {
+            ColorConsole.WriteWrappedHeader("Voilà!", headerColor: ConsoleColor.Yellow);
+
+            ColorConsole.WriteLine($"\nMaximum: {presentFile["Maximum"]}", ConsoleColor.White);
             
-            Console.ForegroundColor = ConsoleColor.White;   
-            Console.WriteLine($"\nMaximum: {presentFile["Maximum"]}");                             //vit
-            
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine($"\nMinimum: {presentFile["Minimum"]}");                             //grå
-            
-            Console.ForegroundColor = ConsoleColor.White;   
+            ColorConsole.WriteLine($"\nMinimum: {presentFile["Minimum"]}", ConsoleColor.Gray);
   
-            Console.WriteLine($"\nMedelvärde: {Math.Round(presentFile["Mean"], 1)}");                             //vit
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine($"\nMedian: {Math.Round(presentFile["Median"], 1)}");                               //grå
-            
-            Console.ForegroundColor = ConsoleColor.White;
+            ColorConsole.WriteLine($"\nMedelvärde: {Math.Round(presentFile["Mean"], 1)}", ConsoleColor.White);
 
-            Console.Write($"\nTypvärde: ");                                                        //vit
-            Console.WriteLine(string.Join(", ", presentFile["Mode"]));
-
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine($"\nVariationsbredd: {presentFile["Range"]}");                       //grå
+            ColorConsole.WriteLine($"\nMedian: {Math.Round(presentFile["Median"], 1)}", ConsoleColor.Gray);
             
-            Console.ForegroundColor = ConsoleColor.White;
+            ColorConsole.Write($"\nTypvärde: ", ConsoleColor.White);
+            ColorConsole.WriteLine(string.Join(", ", presentFile["Mode"]), ConsoleColor.White);
+
+            ColorConsole.WriteLine($"\nVariationsbredd: {presentFile["Range"]}", ConsoleColor.Gray);
            
-            Console.WriteLine($"\nStandardavvikelse: {Math.Round(presentFile["StandardDeviation"], 1)} ");        //vit
-            
-            Console.ForegroundColor = ConsoleColor.Gray;                                       
-            Console.WriteLine("\n-------------------------------------------");                    //grå
-            
-            Console.ForegroundColor = ConsoleColor.Gray;                                           //grå
+            ColorConsole.WriteLine($"\nStandardavvikelse: {Math.Round(presentFile["StandardDeviation"], 1)} ", ConsoleColor.White);
 
             Console.ReadKey(); 
         }
     } 
+    // Helper class för att underlätta estetiska val
+    // Byggd och implementerad i övriga klasser av Markus
+    class ColorConsole
+    {
+        public static void WriteLine(string text, ConsoleColor? color = null)
+        {
+            if (color.HasValue)
+            {
+                var oldColor = System.Console.ForegroundColor;
+                if (color == oldColor)
+                    Console.WriteLine(text);
+                else
+                {
+                    Console.ForegroundColor = color.Value;
+                    Console.WriteLine(text);
+                    Console.ForegroundColor = oldColor;
+                }
+            }
+            else
+                Console.WriteLine(text);
+        }
+        public static void Write(string text, ConsoleColor? color = null)
+        {
+            if (color.HasValue)
+            {
+                var oldColor = System.Console.ForegroundColor;
+                if (color == oldColor)
+                    Console.Write(text);
+                else
+                {
+                    Console.ForegroundColor = color.Value;
+                    Console.Write(text);
+                    Console.ForegroundColor = oldColor;
+                }
+            }
+            else
+                Console.Write(text);
+        }
+        // Metod för att skapa headers till menyer
+        public static void WriteWrappedHeader(string headerText,
+                                            char wrapperChar = '-',
+                                            ConsoleColor headerColor = ConsoleColor.Yellow,
+                                            ConsoleColor dashColor = ConsoleColor.DarkGray)
+        {
+            if (string.IsNullOrEmpty(headerText))
+                return;
+
+            string line = new string(wrapperChar, headerText.Length);
+
+            WriteLine(line, dashColor);
+            WriteLine(headerText, headerColor);
+            WriteLine(line, dashColor);
+        }
+        public static bool flag = false;
+        // Metod med bool toggle för att alternera mellan vit och grå färg på text
+        public static void AlternateColor(string text)
+        {
+            if (flag == false)
+            {
+                ColorConsole.WriteLine(text, ConsoleColor.White);
+                flag = !flag;
+            }
+            else
+            {
+                ColorConsole.WriteLine(text, ConsoleColor.Gray);
+                flag = !flag;
+            }
+        }
+    }
 }

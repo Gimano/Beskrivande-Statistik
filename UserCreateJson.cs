@@ -11,7 +11,9 @@ namespace Beskrivande_Statistik
         public static void UserJson()
         {
             Console.Clear();
-            Console.Write("Vad ska din fil heta: ");
+            ColorConsole.WriteWrappedHeader("Generera en json fil.");
+            Console.WriteLine("Vad ska din fil heta?\n");
+            Console.Write("Ange filnamn: ");
             string fileName = Console.ReadLine();
             fileName = fileName + ".json";
             string jsonChoice = "";
@@ -19,7 +21,11 @@ namespace Beskrivande_Statistik
 
             while (jsonChoice != "0") 
             {
-                Console.Write($"[1] Lägg till integers manuellt i {fileName}.\n[2] Fyll {fileName} med random integers.\n[0] Gå tillbaka till menyn\nDitt val: ");
+                ColorConsole.WriteWrappedHeader($"Ny json fil: {fileName}");
+                ColorConsole.AlternateColor($"1. Lägg till integers manuellt i {fileName}.\n");
+                ColorConsole.AlternateColor($"2. Fyll {fileName} med random integers.\n");
+                ColorConsole.AlternateColor($"0. Gå tillbaka till menyn\n");
+                ColorConsole.Write("Ditt val: ", ConsoleColor.Gray);
                 jsonChoice = Console.ReadLine();
                 switch (jsonChoice)
                 {
