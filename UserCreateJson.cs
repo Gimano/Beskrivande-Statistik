@@ -22,6 +22,8 @@ namespace Beskrivande_Statistik
                 {
 
                     #region Case 1 - Lägg till integers manuellt
+
+                    // Låt användaren skapa en json fil fylld med integers som man användaren matar in själv.
                     case "1":
                         // Låt användaren lägga till integers manuellt i IntList
                         // Sen serialiserar vi värdena i listan och skriver ut dom i json filen.
@@ -38,54 +40,31 @@ namespace Beskrivande_Statistik
                             }
                             else
                             {
-                                // Kallar på metoden serialize för serializering och exception handling
+                                // Kallar på metoden för serializering och exception handling
                                 SerializeAndIOExceptions(fileName);
-
+                                IntList.Clear();
                                 break;
                             }
                         }
                         jsonChoice = "0";
                         break;
+
                     #endregion
 
                     #region Case 2 - Fill list with random integers
-                    // låt användaren välja hur många integers som ska läggas till med hjälp av en random, sen vad högsta och lägsta värdet på dessa siffror kan vara.
-                    // Man får max skapa en lista med 10 miljoner värden i, detta på grund av att filen blir oerhört stor annars och det ska vara lämpligt att köra för alla oss i klassen.
-                    // Om användaren väljer mer än 1 miljon värden att skapas får den frågan om den verkligen vill fortsätta.
+
+                    // Låter användaren skapa en json fil fylld med random integers.
                     case "2":
                         int numberOfInts = 0;
                         int lowRnd = 0;
                         int highRnd = 0;
                         string confirmInts = "";
 
-
-                    regretDecision:
                         Console.Write("Hur många random integers vill du skapa till din json fil: ");
                         numberOfInts = ExceptionHandling();
 
-                        while (numberOfInts < 1 || numberOfInts > 10000000)
-                        {
-                            Console.WriteLine("Värden att skapa måste vara mellan 1 - 10000000");
-                            numberOfInts = ExceptionHandling();
-                        }
-
-                        if (numberOfInts >= 1000000)
-                        {
-                            Console.Write("Du valde att skapa fler än 1 miljon värden till din fil.\nDetta kommer att ta upp mycket utrymme och resurser.\nVill du fortsätta? (Y/N): ");
-
-                            while (confirmInts != "N")
-                            {
-                                confirmInts = Console.ReadLine().ToUpper();
-                                if (confirmInts == "Y")
-                                {
-                                    Console.WriteLine($"{fileName}.json kommer att skapas med {numberOfInts} integers. Vi varnade dig.");
-                                    break;
-                                }
-                                else if (confirmInts == "N") goto regretDecision;
-                                else Console.Write("Ogiltigt val. Vill du fortsätta? (Y/N): ");
-                            }
-                        }
-
+                        numberOfInts = HowManyRandomInts(numberOfInts);
+              
                         Console.Write("Lägsta möjliga nummer att genereras: ");
                         lowRnd = ExceptionHandling();
 
@@ -95,6 +74,7 @@ namespace Beskrivande_Statistik
                             highRnd = ExceptionHandling();
                         } while (lowRnd >= highRnd);
 
+                        // skapar så många värden användaren valt med hjälp av en random
                         for (int i = 0; i < numberOfInts; i++)
                         {
                             Random rnd = new Random();
@@ -102,11 +82,13 @@ namespace Beskrivande_Statistik
                             IntList.Add(num);
                         }
 
-                        // Kallar på metoden serialize för serializering och exception handling
+                        // Kallar på metoden för serializering och exception handling
                         SerializeAndIOExceptions(fileName);
+                        IntList.Clear();
 
                         jsonChoice = "0";
                         break;
+
                     #endregion
 
                     #region Default
@@ -158,5 +140,17 @@ namespace Beskrivande_Statistik
             }
         }
         
+        // Metod där användaren får välja hur många random integers som ska skapas i filen
+        // Ser även till att användaren inte kan skapa en för stor fil (vi har satt värdet till 1.000.000 för tillfället)
+        public static int HowManyRandomInts(int numberOfInts)
+        {
+            int maxVärde = 1000000;
+            while (numberOfInts < 1 || numberOfInts > maxVärde)
+            {
+                Console.WriteLine("Värden att skapa måste vara mellan 1 - 10000000");
+                numberOfInts = ExceptionHandling();
+            }
+            return numberOfInts;
+        }
     }
 }
