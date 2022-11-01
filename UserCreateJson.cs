@@ -40,7 +40,7 @@ namespace Beskrivande_Statistik
                             }
                             else
                             {
-                                // Kallar på metoden för serializering och exception handling
+                                // Kallar på metoden för serializering och exception handling (tömmer sedan listan utifallat man vill skapa fler filer sen)
                                 SerializeAndIOExceptions(fileName);
                                 IntList.Clear();
                                 break;
@@ -82,7 +82,7 @@ namespace Beskrivande_Statistik
                             IntList.Add(num);
                         }
 
-                        // Kallar på metoden för serializering och exception handling
+                        // Kallar på metoden för serializering och exception handling (tömmer sedan listan utifallat man vill skapa fler filer sen)
                         SerializeAndIOExceptions(fileName);
                         IntList.Clear();
 
