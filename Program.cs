@@ -3,14 +3,15 @@
 while (true)
 {
     Console.Clear();
-    Console.WriteLine("Välkommen!");
-    Console.WriteLine("--------------------------------------------");
-    Console.WriteLine("Välj ett alternativ: ");
-    Console.WriteLine("1. Presentera uträkning av data.json.");
-    Console.WriteLine("2. Välj en annan json fil att räkna ut ifrån");
-    Console.WriteLine("3. Generera en json fil med nummer.");
-    Console.WriteLine("4. Avsluta");
-    Console.WriteLine("--------------------------------------------");
+    Console.WriteLine(@"Välkommen!
+---------------------------------------------
+Välj ett alternativ:
+1. Presentera uträkning av data.json.
+2. Välj en annan json fil att räkna ut ifrån.
+3. Generera en json fil med nummer.
+4. Ta bort en json fil.
+5. Avsluta.
+---------------------------------------------");
 
     int menuChoice;
     while (!int.TryParse(Console.ReadLine(), out menuChoice));
@@ -30,6 +31,11 @@ while (true)
             UserCreateJson.UserJson();
             break;
         case 4:
+            //Ta bort en json fil
+            DeleteJson.Delete();
+            break;
+        case 5:
+            //Avsluta Programmet
             Environment.Exit(0);
             break;
         default:
