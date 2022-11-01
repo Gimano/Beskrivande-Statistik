@@ -10,6 +10,7 @@ while (true)
     ColorConsole.AlternateColor("3. Generera en json fil med nummer.");
     ColorConsole.AlternateColor("4. Ta bort en json fil.");
     ColorConsole.AlternateColor("5. Avsluta.");
+    ColorConsole.Write("Ditt val: ", ConsoleColor.Gray);
 
     int menuChoice;
     while (!int.TryParse(Console.ReadLine(), out menuChoice));
