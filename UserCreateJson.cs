@@ -1,26 +1,16 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Net.Http.Headers;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
     public static class UserCreateJson
     {
+        public static List<int> IntList = new List<int>();
         public static void UserJson()
         {
             Console.Clear();
             Console.Write("Vad ska din fil heta: ");
             string fileName = Console.ReadLine();
             fileName = fileName + ".json";
-            List<int> IntList = new List<int>();
             string jsonChoice = "";
             Console.Clear();
 
@@ -40,7 +30,7 @@ namespace Beskrivande_Statistik
                             int input = 0;
                             Console.WriteLine("Skriv in integer värden att lägga till. Avsluta med [0]");
                             Console.Write("Lägg till siffra: ");
-                            input = ExceptionHandling(input);
+                            input = ExceptionHandling();
 
                             if (input != 0)
                             {
@@ -48,17 +38,9 @@ namespace Beskrivande_Statistik
                             }
                             else
                             {
-                                try
-                                {
-                                    string json = JsonConvert.SerializeObject(IntList, Formatting.Indented);
-                                    File.WriteAllText(fileName, json);
-                                }
-                                catch (IOException)
-                                {
-                                    Console.Write("Ogiltigt filnamn.\nTryck enter för att gå tillbaka till menyn.");
-                                    Console.ReadLine();
-                                }
-                                
+                                // Kallar på metoden serialize för serializering och exception handling
+                                SerializeAndIOExceptions(fileName);
+
                                 break;
                             }
                         }
@@ -76,14 +58,15 @@ namespace Beskrivande_Statistik
                         int highRnd = 0;
                         string confirmInts = "";
 
+
                     regretDecision:
                         Console.Write("Hur många random integers vill du skapa till din json fil: ");
-                        numberOfInts = ExceptionHandling(numberOfInts);
+                        numberOfInts = ExceptionHandling();
 
                         while (numberOfInts < 1 || numberOfInts > 10000000)
                         {
                             Console.WriteLine("Värden att skapa måste vara mellan 1 - 10000000");
-                            numberOfInts = ExceptionHandling(numberOfInts);
+                            numberOfInts = ExceptionHandling();
                         }
 
                         if (numberOfInts >= 1000000)
@@ -104,12 +87,12 @@ namespace Beskrivande_Statistik
                         }
 
                         Console.Write("Lägsta möjliga nummer att genereras: ");
-                        lowRnd = ExceptionHandling(lowRnd);
+                        lowRnd = ExceptionHandling();
 
                         do
                         {
                             Console.Write($"Högsta möjliga nummer att genereras (kan inte vara lägre än {lowRnd}): ");
-                            highRnd = ExceptionHandling(highRnd);
+                            highRnd = ExceptionHandling();
                         } while (lowRnd >= highRnd);
 
                         for (int i = 0; i < numberOfInts; i++)
@@ -119,17 +102,8 @@ namespace Beskrivande_Statistik
                             IntList.Add(num);
                         }
 
-                        // serialiserar elementen i IntList och skriver dom till fileName.json, med indentation
-                        try
-                        {
-                            string jsonWithRnd = JsonConvert.SerializeObject(IntList, Formatting.Indented);
-                            File.WriteAllText(fileName, jsonWithRnd);
-                        }
-                        catch (IOException)
-                        {
-                            Console.Write("Ogiltigt filnamn.\nTryck enter för att gå tillbaka till menyn.");
-                            Console.ReadLine();
-                        }
+                        // Kallar på metoden serialize för serializering och exception handling
+                        SerializeAndIOExceptions(fileName);
 
                         jsonChoice = "0";
                         break;
@@ -148,7 +122,7 @@ namespace Beskrivande_Statistik
 
         // En metod för att testa och fånga exceptions som rimligtvis kommer att ske i koden.
         // Detta för att undvika en massa onödig upprepning i resten av koden.
-        public static int ExceptionHandling(int intToTry)
+        public static int ExceptionHandling()
         {
             while (true)
             {
@@ -167,5 +141,22 @@ namespace Beskrivande_Statistik
                 }
             }
         }
+       
+        // En metod som serializerar värdena vi skapat i intlist och skriver dom till en ny json fil med namnet användaren valt
+        // kollar också efter IOException (T.ex ogiltiga karaktärer i filnamnet)
+        public static void SerializeAndIOExceptions(string fileName)
+        {
+            try
+            {
+                string json = JsonConvert.SerializeObject(IntList, Formatting.Indented);
+                File.WriteAllText(fileName, json);
+            }
+            catch (IOException)
+            {
+                Console.Write("Ogiltigt filnamn.\nTryck enter för att gå tillbaka till menyn.");
+                Console.ReadLine();
+            }
+        }
+        
     }
 }
