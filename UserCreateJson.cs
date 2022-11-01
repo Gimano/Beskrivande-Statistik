@@ -22,9 +22,9 @@ namespace Beskrivande_Statistik
             while (jsonChoice != "0") 
             {
                 ColorConsole.WriteWrappedHeader($"Ny json fil: {fileName}");
-                ColorConsole.AlternateColor($"1. Lägg till integers manuellt i {fileName}.\n");
-                ColorConsole.AlternateColor($"2. Fyll {fileName} med random integers.\n");
-                ColorConsole.AlternateColor($"0. Gå tillbaka till menyn\n");
+                ColorConsole.AlternateColor($"1. Lägg till integers manuellt i {fileName}.");
+                ColorConsole.AlternateColor($"2. Fyll {fileName} med random integers.");
+                ColorConsole.AlternateColor($"0. Gå tillbaka till menyn");
                 ColorConsole.Write("Ditt val: ", ConsoleColor.Gray);
                 jsonChoice = Console.ReadLine();
                 switch (jsonChoice)

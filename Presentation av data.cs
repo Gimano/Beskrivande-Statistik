@@ -32,7 +32,7 @@ namespace Beskrivande_Statistik
         }
     } 
     // Helper class för att underlätta estetiska val
-    // Byggd och implementerad i övriga klasser av Markus
+    // Byggd och implementerad i denna och övriga klasser av Markus
     class ColorConsole
     {
         public static void WriteLine(string text, ConsoleColor? color = null)
@@ -52,6 +52,7 @@ namespace Beskrivande_Statistik
             else
                 Console.WriteLine(text);
         }
+        // Markus
         public static void Write(string text, ConsoleColor? color = null)
         {
             if (color.HasValue)
@@ -69,7 +70,7 @@ namespace Beskrivande_Statistik
             else
                 Console.Write(text);
         }
-        // Metod för att skapa headers till menyer
+        // Metod för att skapa headers till menyer /Markus
         public static void WriteWrappedHeader(string headerText,
                                             char wrapperChar = '-',
                                             ConsoleColor headerColor = ConsoleColor.Yellow,
@@ -85,7 +86,7 @@ namespace Beskrivande_Statistik
             WriteLine(line, dashColor);
         }
         public static bool flag = false;
-        // Metod med bool toggle för att alternera mellan vit och grå färg på text
+        // Metod med bool toggle för att alternera mellan vit och grå färg på text /Markus
         public static void AlternateColor(string text)
         {
             if (flag == false)
