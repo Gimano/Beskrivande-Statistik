@@ -1,6 +1,5 @@
 ﻿using Beskrivande_Statistik;
 // Martin
-// Färgformatering: Markus
 while (true)
 {
         Console.Clear();
