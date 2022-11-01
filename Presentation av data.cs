@@ -11,8 +11,7 @@ namespace Beskrivande_Statistik
     {
         public static void presentation_av_data(dynamic presentFile)            //ha olika färg då bli texten lättläst
         {
-            ColorConsole.WriteLine("\nVoilà", ConsoleColor.Cyan);
-            ColorConsole.WriteLine("-------", ConsoleColor.Gray);
+            ColorConsole.WriteWrappedHeader("Voilà!", headerColor: ConsoleColor.Yellow);
 
             ColorConsole.WriteLine($"\nMaximum: {presentFile["Maximum"]}", ConsoleColor.White);
             
@@ -29,13 +28,10 @@ namespace Beskrivande_Statistik
            
             ColorConsole.WriteLine($"\nStandardavvikelse: {Math.Round(presentFile["StandardDeviation"], 1)} ", ConsoleColor.White);
                                                  
-            ColorConsole.WriteLine("\n-------------------------------------------", ConsoleColor.Gray);
-            
             Console.ReadKey(); 
         }
-        
     } 
-    // Helper class för att underlätta färgsättning
+    // Helper class för att underlätta estetiska val /Markus
     class ColorConsole
     {
         public static void WriteLine(string text, ConsoleColor? color = null)
@@ -71,6 +67,35 @@ namespace Beskrivande_Statistik
             }
             else
                 Console.Write(text);
+        }
+        public static void WriteWrappedHeader(string headerText,
+                                            char wrapperChar = '-',
+                                            ConsoleColor headerColor = ConsoleColor.Yellow,
+                                            ConsoleColor dashColor = ConsoleColor.DarkGray)
+        {
+            if (string.IsNullOrEmpty(headerText))
+                return;
+
+            string line = new string(wrapperChar, headerText.Length);
+
+            WriteLine(line, dashColor);
+            WriteLine(headerText, headerColor);
+            WriteLine(line, dashColor);
+        }
+        public static bool flag = false;
+        // Metod med bool toggle för att alternera mellan vit och grå färg på text /Markus
+        public static void AlternateColor(string text)
+        {
+            if (flag == false)
+            {
+                ColorConsole.WriteLine(text, ConsoleColor.White);
+                flag = !flag;
+            }
+            else
+            {
+                ColorConsole.WriteLine(text, ConsoleColor.Gray);
+                flag = !flag;
+            }
         }
     }
 }

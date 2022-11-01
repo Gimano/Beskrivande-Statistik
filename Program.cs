@@ -1,17 +1,16 @@
 ﻿using Beskrivande_Statistik;
-
+// Martin
+// Färgformatering: Markus
 while (true)
 {
-    Console.Clear();
-    Console.WriteLine(@"Välkommen!
----------------------------------------------
-Välj ett alternativ:
-1. Presentera uträkning av data.json.
-2. Välj en annan json fil att räkna ut ifrån.
-3. Generera en json fil med nummer.
-4. Ta bort en json fil.
-5. Avsluta.
----------------------------------------------");
+        Console.Clear();
+    ColorConsole.WriteWrappedHeader("Välkommen!");
+    ColorConsole.AlternateColor("Välj ett alternativ:");
+    ColorConsole.AlternateColor("1. Presentera uträkning av data.json.");
+    ColorConsole.AlternateColor("2. Välj en annan json fil att räkna ut ifrån.");
+    ColorConsole.AlternateColor("3. Generera en json fil med nummer.");
+    ColorConsole.AlternateColor("4. Ta bort en json fil.");
+    ColorConsole.AlternateColor("5. Avsluta.");
 
     int menuChoice;
     while (!int.TryParse(Console.ReadLine(), out menuChoice));

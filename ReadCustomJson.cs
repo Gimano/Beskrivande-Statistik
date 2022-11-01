@@ -21,10 +21,10 @@ namespace Beskrivande_Statistik
             string root = Directory.GetCurrentDirectory();
 
             string[] files = Directory.GetFiles(root, "*.json", SearchOption.AllDirectories).Where(name => !name.Contains("Beskrivande Statistik")).ToArray();
-            Console.WriteLine("Tillgängliga JSON filer:");
+            ColorConsole.WriteWrappedHeader("Tillgängliga JSON filer:");
             foreach (var file in files)
             {
-                Console.WriteLine(Path.GetFileName(file));
+                ColorConsole.AlternateColor($"{Path.GetFileName(file)}");
             }
         }
         public static void Input() //Ber användaren skriva in vilken json som ska läsas och presenterar sen datan
