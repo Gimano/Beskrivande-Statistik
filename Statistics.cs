@@ -30,7 +30,7 @@ namespace Beskrivande_Statistik
             return response;
         }
 
-        public static int Maximum(int[] source)
+        public static int Maximum(int[] source) // Markus
         {
             if (source == null)
                 throw new ArgumentNullException();
@@ -42,7 +42,7 @@ namespace Beskrivande_Statistik
             return maximum;
         }
 
-        public static double Mean(int[] source)
+        public static double Mean(int[] source) // Markus
         {
             if (source == null)
                 throw new ArgumentNullException();
@@ -55,7 +55,7 @@ namespace Beskrivande_Statistik
         }
 
 
-        public static double Median(int[] source)
+        public static double Median(int[] source) // Niklas
         {
             if (source == null)
                 throw new ArgumentNullException();
@@ -71,7 +71,7 @@ namespace Beskrivande_Statistik
         }
 
 
-        public static int Minimum(int[] source)
+        public static int Minimum(int[] source) // Niklas
         {
             if (source == null)
                 throw new ArgumentNullException();
@@ -97,7 +97,7 @@ namespace Beskrivande_Statistik
             return mode;
         }
 
-        public static int Range(int[] source)
+        public static int Range(int[] source) // Markus
         {
             if (source == null)
                 throw new ArgumentNullException();
