@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
-    internal static class Presentation_av_data   
+    internal static class Presentation_av_data   //Krittapat 
     {
         public static void presentation_av_data(dynamic presentFile)            //ha olika färg då bli texten lättläst
         {   
