@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
+
+    // Niklas (Lånade lite kod ifrån Martins ReadCustomJson så att allt ska se likadant ut när det presenteras till användaren)
     internal class DeleteJson
     {
         // En metod där användaren får välja en json fil den vill ta bort
