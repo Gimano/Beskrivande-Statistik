@@ -10,7 +10,7 @@ namespace Beskrivande_Statistik
 
     public static class Statistics
     {
-        public static dynamic DescriptiveStatistics(int[] source)
+        public static dynamic DescriptiveStatistics(int[] source) //Martin
         {
             if (source == null)
                 throw new ArgumentNullException();
@@ -83,16 +83,15 @@ namespace Beskrivande_Statistik
             return minimum;
         }
 
-        public static int[] Mode(int[] source)
+        public static int[] Mode(int[] source) //Martin
         {
             if (source == null)
                 throw new ArgumentNullException();
             if (source.Length == 0)
                 throw new InvalidOperationException("Sequence contains no elements.");
                 
-            var dictSource = source.ToLookup(x => x); // Konverterar arrayen till en Lookup
-            var numberOfModes = dictSource.Max(x => x.Count()); // Hittar antalet av typvärden
-            // Hämtar bara typvärdena
+            var dictSource = source.ToLookup(x => x);
+            var numberOfModes = dictSource.Max(x => x.Count());
             int[] mode = dictSource.Where(x => x.Count() == numberOfModes).Select(x => x.Key).ToArray();
             
             return mode;

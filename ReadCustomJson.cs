@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Beskrivande_Statistik
 {
-    internal class ReadCustomJson
+    internal class ReadCustomJson //Martin. Markus hjälpte till på en rad
     {
         public static void Open()
         {
             Console.Clear();
-            Display(); //Visar alla json filer i rotmappen
+            Display();
             Console.WriteLine("------------------------------------------------------");
-            Input(); //Ber användaren skriva in vilken json som ska läsas och presenterar sen datan
+            Input();
         }
-        public static void Display()
+        public static void Display()  //Visar alla json filer i rotmappen
         {
             string root = Directory.GetCurrentDirectory();
 
@@ -27,7 +27,7 @@ namespace Beskrivande_Statistik
                 Console.WriteLine(Path.GetFileName(file));
             }
         }
-        public static void Input()
+        public static void Input() //Ber användaren skriva in vilken json som ska läsas och presenterar sen datan
         {
             Console.WriteLine("Skriv in namnet på filen du vill läsa (utan .json) eller tryck enter för att gå tillbaka:");
 
